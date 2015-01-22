@@ -20,7 +20,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Chassis extends Subsystem {
     RobotDrive drive;
     Talon talonLeft, talonRight;
-	// Joystick stick;
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
