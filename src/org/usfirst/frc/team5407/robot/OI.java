@@ -22,7 +22,6 @@ public class OI {
     private JoystickButton b3; 
     private JoystickButton b2;
     
-   
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
