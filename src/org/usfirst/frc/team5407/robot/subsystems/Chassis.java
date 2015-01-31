@@ -6,6 +6,7 @@
 package org.usfirst.frc.team5407.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 
 import org.usfirst.frc.team5407.robot.commands.DriveWithJoystick;
@@ -20,6 +21,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Chassis extends Subsystem {
     RobotDrive drive;
     Talon talonLeft, talonRight;
+    Solenoid solenoid_gear_shift = new Solenoid(0);
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -27,6 +29,7 @@ public class Chassis extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new DriveWithJoystick());
+        solenoid_gear_shift.set(false); 
     }
     public Chassis(){
     	talonLeft = new Talon(0);
@@ -51,5 +54,11 @@ public class Chassis extends Subsystem {
     }
     public void driveWithJoystick(Joystick stick){
         drive.arcadeDrive(stick);
-    }
+   }
+    
+   boolean lockLowGear = false; // Allows other systems to override gear selection and force to use low gear. 
+   public void setGear(boolean state){
+	   solenoid_gear_shift.set(lockLowGear ? true : state); 
+   }
+
 }

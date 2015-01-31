@@ -8,6 +8,8 @@ import org.usfirst.frc.team5407.robot.commands.CloseClaw;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
+import org.usfirst.frc.team5407.robot.commands.GearShift;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,12 +23,15 @@ public class OI {
     private JoystickButton b5;
     private JoystickButton b3; 
     private JoystickButton b2;
+    private JoystickButton trigger;
     
     
     public OI(){
         stick = new Joystick(JOYSTICK_PORT);
         //trigger = new JoystickButton(stick, Joystick.ButtonType.kTop.value);
-        //trigger.whenPressed(new DriveStraightAuton());
+        trigger = new JoystickButton(stick, 1);
+        trigger.whenPressed(new GearShift(true));
+        trigger.whenReleased(new GearShift(false));
         b4 = new JoystickButton(stick, 4);
         b5 = new JoystickButton(stick, 5);
         b4.whenPressed(new OpenClaw());
@@ -35,6 +40,7 @@ public class OI {
         b3 = new JoystickButton(stick, 3);
         b2.whileHeld(new UpArm());
         b3.whileHeld(new DownArm());
+    
     }
     public Joystick getJoystick(){
         return stick;
@@ -61,14 +67,14 @@ public class OI {
     
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
-    // button.whenPressed(new ExampleCommand());
+    // button.whenPressed(new GearShift());
     
     // Run the command while the button is being held down and interrupt it once
     // the button is released.
-    // button.whileHeld(new ExampleCommand());
+    // button.whileHeld(new GearShift());
     
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
-    // button.whenReleased(new ExampleCommand());
+    // button.whenReleased(new GearShift());
 }
 
