@@ -10,32 +10,32 @@ package org.usfirst.frc.team5407.robot.commands;
  * @author robotics
  */
 public class ArmDoNothing extends CommandBase {
-    
-    public ArmDoNothing() {
-        // Use requires() here to declare subsystem dependencies
-        requires(arm);
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	public ArmDoNothing() {
+		// Use requires() here to declare subsystem dependencies
+		requires(arm);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        arm.doNothing();
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		arm.doNothing();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return false;
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }

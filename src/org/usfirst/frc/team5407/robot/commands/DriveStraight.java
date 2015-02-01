@@ -10,35 +10,35 @@ package org.usfirst.frc.team5407.robot.commands;
  * @author robotics
  */
 public class DriveStraight extends CommandBase {
-    private double m_timeout;
-    
-    public DriveStraight(double timeout) {
-        m_timeout = timeout;
-        requires(chassis);
-        
-    }
+	private double m_timeout;
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-        setTimeout(m_timeout);
-    }
+	public DriveStraight(double timeout) {
+		m_timeout = timeout;
+		requires(chassis);
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        chassis.staight();
-    }
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return isTimedOut();
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		setTimeout(m_timeout);
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		chassis.staight();
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return isTimedOut();
+	}
+
+	// Called once after isFinished returns true
+	protected void end() {
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }

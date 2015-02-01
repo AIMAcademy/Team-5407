@@ -10,33 +10,33 @@ package org.usfirst.frc.team5407.robot.commands;
  * @author robotics
  */
 public class OpenClaw extends CommandBase {
-    
-    public OpenClaw() {
-        // Use requires() here to declare subsystem dependencies
-        requires(claw);
-        setTimeout(.4);
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	public OpenClaw() {
+		// Use requires() here to declare subsystem dependencies
+		requires(claw);
+		setTimeout(.4);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        claw.open();
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return isTimedOut();
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		claw.open();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return isTimedOut();
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }

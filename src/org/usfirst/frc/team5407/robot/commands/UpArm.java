@@ -10,37 +10,37 @@ package org.usfirst.frc.team5407.robot.commands;
  * @author robotics
  */
 public class UpArm extends CommandBase {
-    
-    public UpArm() {
-        // Use requires() here to declare subsystem dependencies
-        requires(arm);
-        // setTimeout(.4);
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-        // arm.initializeCounterup();
-        arm.up();
-    }
+	public UpArm() {
+		// Use requires() here to declare subsystem dependencies
+		requires(arm);
+		// setTimeout(.4);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        arm.up();
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		// arm.initializeCounterup();
+		arm.up();
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return arm.isSwitchSetup();
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		arm.up();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-        arm.doNothing();
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return arm.isSwitchSetup();
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-       end();
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+		arm.doNothing();
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		end();
+	}
 }

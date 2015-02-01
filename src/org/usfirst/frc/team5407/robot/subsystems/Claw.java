@@ -15,23 +15,27 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author robotics
  */
 public class Claw extends Subsystem {
-    SpeedController motor = new Victor(3);
-    // here. Call these from Commands.
+	SpeedController motor = new Victor(3);
 
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        setDefaultCommand(new ClawDoNothing());
-    }
-    public void open(){
-        motor.set(.5);
-        
-    }
-    public void close(){
-        motor.set(-0.5);
-        
-    }
-    public void doNothing(){
-        motor.set(0);
-        
-    }
+	// here. Call these from Commands.
+
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		setDefaultCommand(new ClawDoNothing());
+	}
+
+	public void open() {
+		motor.set(.5);
+
+	}
+
+	public void close() {
+		motor.set(-0.5);
+
+	}
+
+	public void doNothing() {
+		motor.set(0);
+
+	}
 }

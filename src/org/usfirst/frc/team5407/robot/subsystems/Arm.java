@@ -19,45 +19,48 @@ import edu.wpi.first.wpilibj.Victor;
  * @author robotics
  */
 public class Arm extends Subsystem {
- DigitalInput limitSwitchdown = new DigitalInput(1);
- DigitalInput limitSwitchup = new DigitalInput(2);
- SpeedController motor = new Victor(4);
- Counter counterdown = new Counter(limitSwitchdown);
- Counter counterup = new Counter(limitSwitchup);
+	DigitalInput limitSwitchdown = new DigitalInput(1);
+	DigitalInput limitSwitchup = new DigitalInput(2);
+	SpeedController motor = new Victor(4);
+	Counter counterdown = new Counter(limitSwitchdown);
+	Counter counterup = new Counter(limitSwitchup);
 
- // int stop = 0;
- // public boolean finished = false;
- 
-    public boolean isSwitchSetdown() {
-        return !limitSwitchdown.get();
-    }
-    public boolean isSwitchSetup(){
-        return !limitSwitchup.get();
-    }
-    public void initializeCounterdown() {
-        // counterdown.reset(); 
-    }
-    public void initializeCounterup(){
-        // counterup.reset(); 
-    }
+	// int stop = 0;
+	// public boolean finished = false;
 
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        setDefaultCommand(new ArmDoNothing());
-    }
-    
-    public void up() {
-        motor.set(RobotMap.armSpeed);
-        //motor.set(Relay.Value.kForward);
-    }
-    
-    public void down(){
-     motor.set(-RobotMap.armSpeed);   
-     //motor.set(Relay.Value.kReverse);
-    }
-    
-    public void doNothing(){
-        motor.set(0);
-     //motor.set(Relay.Value.kOff); 
-    }
+	public boolean isSwitchSetdown() {
+		return !limitSwitchdown.get();
+	}
+
+	public boolean isSwitchSetup() {
+		return !limitSwitchup.get();
+	}
+
+	public void initializeCounterdown() {
+		// counterdown.reset();
+	}
+
+	public void initializeCounterup() {
+		// counterup.reset();
+	}
+
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		setDefaultCommand(new ArmDoNothing());
+	}
+
+	public void up() {
+		motor.set(RobotMap.armSpeed);
+		// motor.set(Relay.Value.kForward);
+	}
+
+	public void down() {
+		motor.set(-RobotMap.armSpeed);
+		// motor.set(Relay.Value.kReverse);
+	}
+
+	public void doNothing() {
+		motor.set(0);
+		// motor.set(Relay.Value.kOff);
+	}
 }
