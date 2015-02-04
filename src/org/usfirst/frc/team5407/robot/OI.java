@@ -8,6 +8,7 @@ import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
+import org.usfirst.frc.team5407.robot.subsystems.Winch;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,6 +23,8 @@ public class OI {
 	private JoystickButton b3;
 	private JoystickButton b2;
 	private JoystickButton trigger;
+	private JoystickButton b8; 
+	private JoystickButton b9;  
 
 	public OI() {
 		stick = new Joystick(JOYSTICK_PORT);
@@ -37,6 +40,10 @@ public class OI {
 		b3 = new JoystickButton(stick, 3);
 		b2.whileHeld(new UpArm());
 		b3.whileHeld(new DownArm());
+		b8 = new JoystickButton(stick, 8);
+		b9 = new JoystickButton(stick, 9); 
+		b8.whenPressed(new Winch(Up));  
+		b9.whenPressed(new Winch(Down)); 
 	}
 
 	public Joystick getJoystick() {
