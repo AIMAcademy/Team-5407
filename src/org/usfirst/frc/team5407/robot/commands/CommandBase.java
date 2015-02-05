@@ -5,6 +5,7 @@ import org.usfirst.frc.team5407.robot.OI;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.Claw;
+import org.usfirst.frc.team5407.robot.subsystems.Winch;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -21,6 +22,7 @@ public abstract class CommandBase extends Command {
 	public static Chassis chassis = new Chassis();
 	public static Claw claw = new Claw();
 	public static Arm arm = new Arm();
+	public static Winch winch = new Winch();
 
 	public static void init() {
 		// This MUST be here. If the OI creates Commands (which it very likely
@@ -57,6 +59,12 @@ public abstract class CommandBase extends Command {
 	static class arm {
 
 		public arm() {
+		}
+	}
+	
+	static class winch {
+
+		public winch() {
 		}
 	}
 
