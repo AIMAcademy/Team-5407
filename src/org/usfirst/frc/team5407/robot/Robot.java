@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5407.robot.commands.CommandBase;
 import org.usfirst.frc.team5407.robot.commands.DriveStraightAuton;
@@ -21,7 +22,7 @@ import org.usfirst.frc.team5407.robot.RobotMap;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-    public static Winch winch;;
+    public static Winch winch;
     
 	Command autonomousCommand;
 
@@ -38,6 +39,9 @@ public class Robot extends IterativeRobot {
 
 		// Initialize all subsystems
 		CommandBase.init();
+		
+		// try to use smart dashboard
+        SmartDashboard.putData(winch);
 	}
 
 	public void disabledPeriodic() {
