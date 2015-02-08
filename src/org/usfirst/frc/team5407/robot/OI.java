@@ -2,13 +2,14 @@ package org.usfirst.frc.team5407.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5407.robot.commands.CloseClaw;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
-import org.usfirst.frc.team5407.robot.commands.Lift;
+import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -28,7 +29,6 @@ public class OI {
 
 	public OI() {
 		stick = new Joystick(JOYSTICK_PORT);
-		// trigger = new JoystickButton(stick, Joystick.ButtonType.kTop.value);
 		trigger = new JoystickButton(stick, 1);
 		trigger.whenPressed(new GearShift(true));
 		trigger.whenReleased(new GearShift(false));
@@ -41,9 +41,14 @@ public class OI {
 		b2.whileHeld(new UpArm());
 		b3.whileHeld(new DownArm());
 		b8 = new JoystickButton(stick, 8);
-		b8.whenPressed(new Lift());  
+		b8.whenPressed(new SetWinchSetpoint(0.2));  
 		// b9 = new JoystickButton(stick, 9); 
 		// b9.whenPressed(new Lift()); 
+		
+    	// Put Some buttons on the SmartDashboard
+        SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0));
+        SmartDashboard.putData("Winch 2 Totes", new SetWinchSetpoint(0.2));
+        SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.3));
 	}
 
 	public Joystick getJoystick() {
