@@ -20,38 +20,50 @@ import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
 public class OI {
 	public static final int JOYSTICK_PORT = 0;
 	private Joystick stick;
-	// private JoystickButton trigger;
+	private JoystickButton trigger;
+	private JoystickButton b2;
+	private JoystickButton b3;
 	private JoystickButton b4;
 	private JoystickButton b5;
-	private JoystickButton b3;
-	private JoystickButton b2;
-	private JoystickButton trigger;
+	private JoystickButton b7; 
 	private JoystickButton b8; 
 	private JoystickButton b9;  
-	// private JoystickButton b10;  
+	private JoystickButton b10;  
+	private JoystickButton b11;  
+	private JoystickButton b12;  
 
 	public OI() {
+		
 		stick = new Joystick(JOYSTICK_PORT);
+
+		// create buttons
 		trigger = new JoystickButton(stick, 1);
-		trigger.whenPressed(new GearShift(true));
-		trigger.whenReleased(new GearShift(false));
-		b4 = new JoystickButton(stick, 4);
-		b5 = new JoystickButton(stick, 5);
-		b4.whenPressed(new OpenClaw());
-		b5.whenPressed(new CloseClaw());
 		b2 = new JoystickButton(stick, 2);
 		b3 = new JoystickButton(stick, 3);
+		b4 = new JoystickButton(stick, 4);
+		b5 = new JoystickButton(stick, 5);
+		b7 = new JoystickButton(stick, 7);
+		b8 = new JoystickButton(stick, 8);
+		b9 = new JoystickButton(stick, 9);
+		b10 = new JoystickButton(stick, 10);
+		b11 = new JoystickButton(stick, 11);
+		b12 = new JoystickButton(stick, 12);
+		
+		// run commands
+		trigger.whenPressed(new GearShift(true));
+		trigger.whenReleased(new GearShift(false));
 		b2.whileHeld(new UpArm());
 		b3.whileHeld(new DownArm());
-		b8 = new JoystickButton(stick, 8);
+		b4.whenPressed(new OpenClaw());
+		b5.whenPressed(new CloseClaw());
+		b7.whenPressed(new SetWinchSetpoint(0));
 		b8.whenPressed(new SetWinchSetpoint(0.2));
-		b9 = new JoystickButton(stick, 9);
-		b9.whenPressed(new SetWinchSetpoint(0.8));
-		// b10 = new JoystickButton(stick, 10);
-        // b10.whenPressed(new SetElevatorSetpoint(Elevator.STOW));
-
+		b9.whenPressed(new SetWinchSetpoint(0.4));
+		b10.whenPressed(new SetWinchSetpoint(0.6));
+		b11.whenPressed(new SetWinchSetpoint(0.8));
+		b12.whenPressed(new SetWinchSetpoint(1));
 		
-    	// Put Some buttons on the SmartDashboard
+    	// Put buttons on the SmartDashboard
         SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.1));
         SmartDashboard.putData("Winch 2 Totes", new SetWinchSetpoint(0.2));
         SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.4));

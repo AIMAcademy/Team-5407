@@ -35,7 +35,6 @@ public class Chassis extends Subsystem {
 	public Chassis() {
 		talonLeft = new Talon(0);
 		talonRight = new Talon(1);
-		// stick = new Joystick(0);
 		drive = new RobotDrive(talonLeft, talonRight);// defines rearLeft,rearRight Motors
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
