@@ -1,5 +1,10 @@
 package org.usfirst.frc.team5407.robot.commands;
 
+import org.usfirst.frc.team5407.robot.OI;
+import org.usfirst.frc.team5407.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 // import org.usfirst.frc.team5407.robot.RobotMap;
 // import org.usfirst.frc0.MyRobot.Robot;
 
@@ -9,11 +14,11 @@ package org.usfirst.frc.team5407.robot.commands;
 /**
  *
  */
-public class WinchDrive extends CommandBase {
+public class WinchDrive extends Command {
 
     public WinchDrive() {
         // Use requires() here to declare subsystem dependencies
-		requires(winch);
+		requires(Robot.winch);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +26,11 @@ public class WinchDrive extends CommandBase {
     }
 	
 	public void execute() {
-	    winch.driveWinch(oi.getStick1());
+		if (Math.abs(OI.getStickY()) > 0.1) {//Adds a deadband to the joystick input
+		    Robot.winch.driveWinch(OI.getStickY());
+		}else {
+			Robot.winch.driveWinch(0.0);
+		}
 	}
 
     // Make this return true when this Command no longer needs to run execute()

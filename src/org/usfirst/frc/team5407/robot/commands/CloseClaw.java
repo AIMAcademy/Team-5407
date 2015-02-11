@@ -5,15 +5,19 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import org.usfirst.frc.team5407.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  * @author robotics
  */
-public class CloseClaw extends CommandBase {
+public class CloseClaw extends Command { //import command remove commandbase
 
 	public CloseClaw() {
 		// Use requires() here to declare subsystem dependencies
-		requires(claw);
+		requires(Robot.claw); //TODO Robot.claw and import Robot
 		setTimeout(.4);
 	}
 
@@ -23,7 +27,7 @@ public class CloseClaw extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		claw.close();
+		Robot.claw.close();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

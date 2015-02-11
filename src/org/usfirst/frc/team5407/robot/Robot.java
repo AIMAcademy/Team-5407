@@ -6,8 +6,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team5407.robot.commands.CommandBase;
 import org.usfirst.frc.team5407.robot.commands.DriveStraightAuton;
+import org.usfirst.frc.team5407.robot.subsystems.Arm;
+import org.usfirst.frc.team5407.robot.subsystems.Chassis;
+import org.usfirst.frc.team5407.robot.subsystems.Claw;
+import org.usfirst.frc.team5407.robot.subsystems.ClawLift;
 import org.usfirst.frc.team5407.robot.subsystems.Winch;
 import org.usfirst.frc.team5407.robot.RobotMap;
 
@@ -21,8 +24,12 @@ import org.usfirst.frc.team5407.robot.RobotMap;
  */
 public class Robot extends IterativeRobot {
 
-	public static OI oi;
     public static Winch winch;
+    public static Chassis chassis;
+	public static Claw claw;
+	public static Arm arm;
+	public static ClawLift clawlift;
+	public static OI oi;
     
 	Command autonomousCommand;
 
@@ -32,13 +39,15 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		RobotMap.init();
+		clawlift = new ClawLift();
+		arm = new Arm();
+		claw = new Claw();
+		chassis = new Chassis();
         winch = new Winch();
 		oi = new OI();
+		
 		// instantiate the command used for the autonomous period
 		autonomousCommand = new DriveStraightAuton();
-
-		// Initialize all subsystems
-		CommandBase.init();
 		
 		// try to use smart dashboard
         SmartDashboard.putData(winch);

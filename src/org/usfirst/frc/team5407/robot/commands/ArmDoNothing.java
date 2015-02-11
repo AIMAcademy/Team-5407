@@ -5,15 +5,19 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import org.usfirst.frc.team5407.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  * @author robotics
  */
-public class ArmDoNothing extends CommandBase {
+public class ArmDoNothing extends Command {
 
 	public ArmDoNothing() {
 		// Use requires() here to declare subsystem dependencies
-		requires(arm);
+		requires(Robot.arm);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +26,7 @@ public class ArmDoNothing extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		arm.doNothing();
+		Robot.arm.doNothing();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

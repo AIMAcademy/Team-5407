@@ -5,15 +5,19 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import org.usfirst.frc.team5407.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  * @author robotics
  */
-public class ClawDoNothing extends CommandBase {
+public class ClawDoNothing extends Command {
 
 	public ClawDoNothing() {
 		// Use requires() here to declare subsystem dependencies
-		requires(claw);
+		requires(Robot.claw);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +26,7 @@ public class ClawDoNothing extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		claw.doNothing();
+		Robot.claw.doNothing();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

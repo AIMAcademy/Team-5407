@@ -20,8 +20,8 @@ import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
 public class OI {
 	public static final int JOYSTICK_PORT = 0;
 	public static final int JOYSTICK_PORT_1 = 1;
-	private Joystick stick;
-	private Joystick stick1;
+	private static Joystick stick; //TODO make all static
+	private static Joystick stick1;
 	private JoystickButton trigger;
 	private JoystickButton b2;
 	private JoystickButton b3;
@@ -76,12 +76,12 @@ public class OI {
         SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.4));
 	}
 
-	public Joystick getJoystick() {
+	public static Joystick getJoystick() {
 		return stick;
 	}
 	
-	public double getStick1() {
-	    return stick1.getY();
+	public static double getStickY() {
+	    return stick1.getY(); //TODO Invert with minus sign if needed
 	}
 	
 	

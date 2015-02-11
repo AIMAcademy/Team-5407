@@ -12,7 +12,6 @@
 package org.usfirst.frc.team5407.robot.subsystems;
 
 import org.usfirst.frc.team5407.robot.RobotMap;
-import org.usfirst.frc.team5407.robot.commands.WinchDoNothing;
 import org.usfirst.frc.team5407.robot.commands.WinchDrive;
 import org.usfirst.frc.team5407.robot.subsystems.Winch;
 

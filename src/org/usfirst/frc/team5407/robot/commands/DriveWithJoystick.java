@@ -5,15 +5,20 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import org.usfirst.frc.team5407.robot.OI;
+import org.usfirst.frc.team5407.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  * @author robotics
  */
-public class DriveWithJoystick extends CommandBase {
+public class DriveWithJoystick extends Command {
 
 	public DriveWithJoystick() {
 		// Use requires() here to declare subsystem dependencies
-		requires(chassis);
+		requires(Robot.chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +27,7 @@ public class DriveWithJoystick extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		chassis.driveWithJoystick(oi.getJoystick());
+		Robot.chassis.driveWithJoystick(OI.getJoystick());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
