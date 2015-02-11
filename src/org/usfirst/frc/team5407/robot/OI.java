@@ -19,7 +19,9 @@ import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
  */
 public class OI {
 	public static final int JOYSTICK_PORT = 0;
+	public static final int JOYSTICK_PORT_1 = 1;
 	private Joystick stick;
+	private Joystick stick1;
 	private JoystickButton trigger;
 	private JoystickButton b2;
 	private JoystickButton b3;
@@ -32,9 +34,14 @@ public class OI {
 	private JoystickButton b11;  
 	private JoystickButton b12;  
 
+	
+	public double liftSpeed = 0.75;
+
+	
 	public OI() {
 		
 		stick = new Joystick(JOYSTICK_PORT);
+		stick1 = new Joystick(JOYSTICK_PORT_1);
 
 		// create buttons
 		trigger = new JoystickButton(stick, 1);
@@ -72,6 +79,12 @@ public class OI {
 	public Joystick getJoystick() {
 		return stick;
 	}
+	
+	public double getStick1() {
+	    return stick1.getY();
+	}
+	
+	
 	// // CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	// joystick.
