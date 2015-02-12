@@ -5,17 +5,20 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot;
+
 /**
  *
  * @author robotics
  */
-public class LeftTurn extends CommandBase {
+public class LeftTurn extends Command {
 	private double m_timeout;
 
 	public LeftTurn(double timeout) {
 		// Use requires() here to declare subsystem dependencies
 		m_timeout = timeout;
-		requires(chassis);
+		requires(Robot.chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -25,7 +28,7 @@ public class LeftTurn extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		chassis.turnLeft();
+		Robot.chassis.turnLeft();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

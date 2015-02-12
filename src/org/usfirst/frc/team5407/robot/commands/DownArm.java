@@ -5,37 +5,40 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot; 
+
 /**
  *
  * @author robotics
  */
-public class DownArm extends CommandBase {
+public class DownArm extends Command {
 
 	public DownArm() {
 		// Use requires() here to declare subsystem dependencies
-		requires(arm);
+		requires(Robot.arm);
 		// setTimeout(.4);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		// arm.initializeCounterdown();
-		arm.down();
+		Robot.arm.down();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		arm.down();
+		Robot.arm.down();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return arm.isSwitchSetdown();
+		return Robot.arm.isSwitchSetdown();
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		arm.doNothing();
+		Robot.arm.doNothing();
 	}
 
 	// Called when another command which requires one or more of the same

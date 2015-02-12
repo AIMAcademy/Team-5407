@@ -5,15 +5,18 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot;
+
 /**
  *
  * @author robotics
  */
-public class WinchDoNothing extends CommandBase {
+public class WinchDoNothing extends Command {
 
 	public WinchDoNothing() {
 		// Use requires() here to declare subsystem dependencies
-		requires(winch);
+		requires(Robot.winch);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +25,7 @@ public class WinchDoNothing extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		winch.doNothing();
+		Robot.winch.doNothing();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

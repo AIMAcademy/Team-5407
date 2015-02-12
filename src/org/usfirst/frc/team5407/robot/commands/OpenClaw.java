@@ -5,15 +5,18 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot;
+
 /**
  *
  * @author robotics
  */
-public class OpenClaw extends CommandBase {
+public class OpenClaw extends Command {
 
 	public OpenClaw() {
 		// Use requires() here to declare subsystem dependencies
-		requires(claw);
+		requires(Robot.claw);
 		setTimeout(.4);
 	}
 
@@ -23,7 +26,7 @@ public class OpenClaw extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		claw.open();
+		Robot.claw.open();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -32,7 +32,15 @@ public class OI {
 	private JoystickButton b9;  
 	private JoystickButton b10;  
 	private JoystickButton b11;  
-	private JoystickButton b12;  
+	private JoystickButton b12;
+	
+	// create variables for stick 1
+	private JoystickButton b7_1; 
+	private JoystickButton b8_1; 
+	private JoystickButton b9_1;  
+	private JoystickButton b10_1;  
+	private JoystickButton b11_1;  
+	private JoystickButton b12_1; 
 
 	
 	public double liftSpeed = 0.75;
@@ -43,32 +51,48 @@ public class OI {
 		stick = new Joystick(JOYSTICK_PORT);
 		stick1 = new Joystick(JOYSTICK_PORT_1);
 
-		// create buttons
+		// create buttons on stick 0
 		trigger = new JoystickButton(stick, 1);
-		b2 = new JoystickButton(stick, 2);
-		b3 = new JoystickButton(stick, 3);
-		b4 = new JoystickButton(stick, 4);
-		b5 = new JoystickButton(stick, 5);
-		b7 = new JoystickButton(stick, 7);
-		b8 = new JoystickButton(stick, 8);
-		b9 = new JoystickButton(stick, 9);
-		b10 = new JoystickButton(stick, 10);
-		b11 = new JoystickButton(stick, 11);
-		b12 = new JoystickButton(stick, 12);
+//		b2 = new JoystickButton(stick, 2);
+//		b3 = new JoystickButton(stick, 3);
+//		b4 = new JoystickButton(stick, 4);
+//		b5 = new JoystickButton(stick, 5);
+//		b7 = new JoystickButton(stick, 7);
+//		b8 = new JoystickButton(stick, 8);
+//		b9 = new JoystickButton(stick, 9);
+//		b10 = new JoystickButton(stick, 10);
+//		b11 = new JoystickButton(stick, 11);
+//		b12 = new JoystickButton(stick, 12);
 		
-		// run commands
+		// run commands on stick 0
 		trigger.whenPressed(new GearShift(true));
 		trigger.whenReleased(new GearShift(false));
-		b2.whileHeld(new UpArm());
-		b3.whileHeld(new DownArm());
-		b4.whenPressed(new OpenClaw());
-		b5.whenPressed(new CloseClaw());
-		b7.whenPressed(new SetWinchSetpoint(0));
-		b8.whenPressed(new SetWinchSetpoint(0.2));
-		b9.whenPressed(new SetWinchSetpoint(0.4));
-		b10.whenPressed(new SetWinchSetpoint(0.6));
-		b11.whenPressed(new SetWinchSetpoint(0.8));
-		b12.whenPressed(new SetWinchSetpoint(1));
+//		b2.whileHeld(new UpArm());
+//		b3.whileHeld(new DownArm());
+//		b4.whenPressed(new OpenClaw());
+//		b5.whenPressed(new CloseClaw());
+//		b7.whenPressed(new SetWinchSetpoint(0));
+//		b8.whenPressed(new SetWinchSetpoint(0.2));
+//		b9.whenPressed(new SetWinchSetpoint(0.4));
+//		b10.whenPressed(new SetWinchSetpoint(0.6));
+//		b11.whenPressed(new SetWinchSetpoint(0.8));
+//		b12.whenPressed(new SetWinchSetpoint(1));
+		
+		// create buttons on stick 1
+		b7_1 = new JoystickButton(stick1, 7);
+		b8_1 = new JoystickButton(stick1, 8);
+		b9_1 = new JoystickButton(stick1, 9);
+//		b10_1 = new JoystickButton(stick1, 10);
+//		b11_1 = new JoystickButton(stick1, 11);
+//		b12_1 = new JoystickButton(stick1, 12);
+		
+		// run commands on stick 1
+		b7_1.whenPressed(new SetWinchSetpoint(0));
+		b8_1.whenPressed(new SetWinchSetpoint(0.2));
+		b9_1.whenPressed(new SetWinchSetpoint(0.4));
+//		b10_1.whenPressed(new SetWinchSetpoint(0.6));
+//		b11_1.whenPressed(new SetWinchSetpoint(0.8));
+//		b12_1.whenPressed(new SetWinchSetpoint(1));
 		
     	// Put buttons on the SmartDashboard
         SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.1));

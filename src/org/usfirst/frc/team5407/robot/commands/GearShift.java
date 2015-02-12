@@ -1,16 +1,19 @@
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot;
+
 /**
  *
  */
-public class GearShift extends CommandBase {
+public class GearShift extends Command {
 
 	boolean finished = false;
 	boolean state;
 
 	public GearShift(boolean state) {
 		// Use requires() here to declare subsystem dependencies
-		requires(chassis);
+		requires(Robot.chassis);
 		this.state = state;
 	}
 
@@ -21,7 +24,7 @@ public class GearShift extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		chassis.setGear(state);
+		Robot.chassis.setGear(state);
 		finished = true;
 	}
 

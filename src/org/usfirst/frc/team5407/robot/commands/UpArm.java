@@ -5,37 +5,40 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot;
+
 /**
  *
  * @author robotics
  */
-public class UpArm extends CommandBase {
+public class UpArm extends Command {
 
 	public UpArm() {
 		// Use requires() here to declare subsystem dependencies
-		requires(arm);
+		requires(Robot.arm);
 		// setTimeout(.4);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		// arm.initializeCounterup();
-		arm.up();
+		Robot.arm.up();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		arm.up();
+		Robot.arm.up();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return arm.isSwitchSetup();
+		return Robot.arm.isSwitchSetup();
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		arm.doNothing();
+		Robot.arm.doNothing();
 	}
 
 	// Called when another command which requires one or more of the same

@@ -5,16 +5,19 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5407.robot.Robot;
+
 /**
  *
  * @author robotics
  */
-public class DriveStraight extends CommandBase {
+public class DriveStraight extends Command {
 	private double m_timeout;
 
 	public DriveStraight(double timeout) {
 		m_timeout = timeout;
-		requires(chassis);
+		requires(Robot.chassis);
 
 	}
 
@@ -25,7 +28,7 @@ public class DriveStraight extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		chassis.staight();
+		Robot.chassis.staight();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
