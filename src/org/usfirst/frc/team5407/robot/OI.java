@@ -10,6 +10,8 @@ import org.usfirst.frc.team5407.robot.commands.OpenClaw;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
 import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
+import org.usfirst.frc.team5407.robot.commands.WinchDoNothing;
+import org.usfirst.frc.team5407.robot.commands.WinchDrive;
 // import org.usfirst.frc.team5407.robot.commands.SetElevatorSetpoint;
 // import org.usfirst.frc.team5407.robot.subsystems.Elevator;
 
@@ -35,6 +37,7 @@ public class OI {
 	private JoystickButton b12;
 	
 	// create variables for stick 1
+	private JoystickButton b5_1; 
 	private JoystickButton b7_1; 
 	private JoystickButton b8_1; 
 	private JoystickButton b9_1;  
@@ -79,6 +82,7 @@ public class OI {
 //		b12.whenPressed(new SetWinchSetpoint(1));
 		
 		// create buttons on stick 1
+		b5_1 = new JoystickButton(stick1, 5);
 		b7_1 = new JoystickButton(stick1, 7);
 		b8_1 = new JoystickButton(stick1, 8);
 		b9_1 = new JoystickButton(stick1, 9);
@@ -87,6 +91,7 @@ public class OI {
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// run commands on stick 1
+		b5_1.whenPressed(new WinchDoNothing());
 		b7_1.whenPressed(new SetWinchSetpoint(0));
 		b8_1.whenPressed(new SetWinchSetpoint(0.2));
 		b9_1.whenPressed(new SetWinchSetpoint(0.4));

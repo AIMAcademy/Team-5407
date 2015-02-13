@@ -14,6 +14,8 @@ import org.usfirst.frc.team5407.robot.Robot;
  */
 public class SetWinchSetpoint extends Command {
     private double setpoint;
+	boolean state;
+	boolean finished = true;
     
     public SetWinchSetpoint(double setpoint) {
         this.setpoint = setpoint;
@@ -42,6 +44,5 @@ public class SetWinchSetpoint extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        
     }
 }
