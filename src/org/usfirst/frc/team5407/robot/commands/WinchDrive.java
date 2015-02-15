@@ -43,11 +43,12 @@ public class WinchDrive extends Command {
     }
 	
 	public void execute() {
-			if (Math.abs(OI.getStickY()) > 0.1) {//Adds a deadband to the joystick input
+			if (Math.abs(OI.getStickY()) > 0.1) { //Adds a deadband to the joystick input
 		        // Robot.winch.disable();
 			    Robot.winch.driveWinch(OI.getStickY());
 			    // Robot.winch.onTarget();
-			}else {
+			}
+			else {
 		        // Robot.winch.disable();
 				Robot.winch.driveWinch(0.0);			
 			}

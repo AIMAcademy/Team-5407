@@ -11,6 +11,7 @@
 
 package org.usfirst.frc.team5407.robot.subsystems;
 
+import org.usfirst.frc.team5407.robot.OI;
 import org.usfirst.frc.team5407.robot.Robot;
 import org.usfirst.frc.team5407.robot.RobotMap;
 import org.usfirst.frc.team5407.robot.commands.WinchDrive;
@@ -89,10 +90,54 @@ public class Winch extends PIDSubsystem {
     }
     
 	public void driveWinch(double speed) {
-		if(RobotMap.winchLimitTop.get()){
-			victor.set(speed);
+//			victor.set(speed/2);
 		    SmartDashboard.putNumber("Potentiometer Value Drive", potentiometer.get());
-		}
+		    
+//			if(RobotMap.winchLimitTop.get() == true){
+//				if(OI.getStickY() < 0.1) {
+//				    // Robot.winch.driveWinch(OI.getStickY());
+//					victor.set(0);
+//				}
+//				else {
+//			        // Robot.winch.disable();
+//					// Robot.winch.driveWinch(0.0);
+//					victor.set(speed/2);
+//				}
+//	        // Robot.winch.disable();
+//		    // Robot.winch.driveWinch(OI.getStickY());
+//		    // Robot.winch.onTarget();
+//			}
+			
+			if(OI.getStickY() < -0.1){
+				if(RobotMap.winchLimitBottom.get() == false) {
+				    // Robot.winch.driveWinch(OI.getStickY());
+					victor.set(0);
+				}
+				else {
+			        // Robot.winch.disable();
+					// Robot.winch.driveWinch(0.0);
+					victor.set(speed/2);
+				}
+	        // Robot.winch.disable();
+		    // Robot.winch.driveWinch(OI.getStickY());
+		    // Robot.winch.onTarget();
+			}
+			else if(OI.getStickY() > 0.1){
+				if(RobotMap.winchLimitTop.get() == false) {
+				    // Robot.winch.driveWinch(OI.getStickY());
+					victor.set(0);
+				}
+				else {
+			        // Robot.winch.disable();
+					// Robot.winch.driveWinch(0.0);
+					victor.set(speed/2);
+				}
+			}
+			else {
+		        // Robot.winch.disable();
+				// Robot.winch.driveWinch(0.0);
+				victor.set(speed/2);
+			}
 	}
 	
 	public void doNothing() {

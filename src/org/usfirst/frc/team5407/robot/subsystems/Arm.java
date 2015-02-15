@@ -19,8 +19,8 @@ import edu.wpi.first.wpilibj.Victor;
  * @author robotics
  */
 public class Arm extends Subsystem {
-	DigitalInput limitSwitchdown = new DigitalInput(1);
-	DigitalInput limitSwitchup = new DigitalInput(2);
+	DigitalInput limitSwitchdown = new DigitalInput(8);
+	DigitalInput limitSwitchup = new DigitalInput(9);
 	SpeedController motor = new Victor(4);
 	Counter counterdown = new Counter(limitSwitchdown);
 	Counter counterup = new Counter(limitSwitchup);
