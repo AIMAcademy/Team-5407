@@ -92,9 +92,9 @@ public class OI {
 		
 		// run commands on stick 1
 		b5_1.whenPressed(new WinchDoNothing());
-		b7_1.whenPressed(new SetWinchSetpoint(0));
-		b8_1.whenPressed(new SetWinchSetpoint(0.2));
-		b9_1.whenPressed(new SetWinchSetpoint(0.4));
+		b7_1.whileHeld(new SetWinchSetpoint(0));
+		b8_1.whileHeld(new SetWinchSetpoint(0.2));
+		b9_1.whileHeld(new SetWinchSetpoint(0.4));
 //		b10_1.whenPressed(new SetWinchSetpoint(0.6));
 //		b11_1.whenPressed(new SetWinchSetpoint(0.8));
 //		b12_1.whenPressed(new SetWinchSetpoint(1));
