@@ -90,52 +90,24 @@ public class Winch extends PIDSubsystem {
     }
     
 	public void driveWinch(double speed) {
-//			victor.set(speed/2);
 		    SmartDashboard.putNumber("Potentiometer Value Drive", potentiometer.get());
-		    
-//			if(RobotMap.winchLimitTop.get() == true){
-//				if(OI.getStickY() < 0.1) {
-//				    // Robot.winch.driveWinch(OI.getStickY());
-//					victor.set(0);
-//				}
-//				else {
-//			        // Robot.winch.disable();
-//					// Robot.winch.driveWinch(0.0);
-//					victor.set(speed/2);
-//				}
-//	        // Robot.winch.disable();
-//		    // Robot.winch.driveWinch(OI.getStickY());
-//		    // Robot.winch.onTarget();
-//			}
-			
 			if(OI.getStickY() < -0.1){
 				if(RobotMap.winchLimitBottom.get() == false) {
-				    // Robot.winch.driveWinch(OI.getStickY());
 					victor.set(0);
 				}
 				else {
-			        // Robot.winch.disable();
-					// Robot.winch.driveWinch(0.0);
 					victor.set(speed/2);
 				}
-	        // Robot.winch.disable();
-		    // Robot.winch.driveWinch(OI.getStickY());
-		    // Robot.winch.onTarget();
 			}
 			else if(OI.getStickY() > 0.1){
 				if(RobotMap.winchLimitTop.get() == false) {
-				    // Robot.winch.driveWinch(OI.getStickY());
 					victor.set(0);
 				}
 				else {
-			        // Robot.winch.disable();
-					// Robot.winch.driveWinch(0.0);
 					victor.set(speed/2);
 				}
 			}
 			else {
-		        // Robot.winch.disable();
-				// Robot.winch.driveWinch(0.0);
 				victor.set(speed/2);
 			}
 	}
