@@ -113,9 +113,9 @@ public class Winch extends PIDSubsystem {
 	}
 	
 	public void doNothing() {
-		// victor.set(0);
+		victor.set(0);
         // Robot.winch.disable();
-        new WinchDrive();
+        // new WinchDrive();
 	}
 	
 }
