@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 
+import org.usfirst.frc.team5407.robot.OI;
+import org.usfirst.frc.team5407.robot.Robot;
 import org.usfirst.frc.team5407.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -22,7 +24,7 @@ public class Chassis extends Subsystem {
 	RobotDrive drive;
 	Talon talonLeft, talonRight;
 	Solenoid solenoid_gear_shift = new Solenoid(0);
-//	boolean state = false;
+	boolean reverseState = false;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -60,21 +62,29 @@ public class Chassis extends Subsystem {
 	
 	public void reverseDrive(boolean state) {
 		if(state == false){ // can also be (!state)
+			reverseState = false;
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		}
 		else if(state == true){  // can also be (state)
+			reverseState = true;
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
 		}
 		else {
+			reverseState = false;
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		}
 	}
 
 	public void driveWithJoystick(Joystick stick) {
-		drive.arcadeDrive(stick);
+		if(reverseState==true) {
+			drive.arcadeDrive(stick.getY(), -stick.getX());
+		}
+		else {
+			drive.arcadeDrive(stick);
+		}
 	}
 
 	boolean lockLowGear = false; // Allows other systems to override gear selection and force to use low gear.
