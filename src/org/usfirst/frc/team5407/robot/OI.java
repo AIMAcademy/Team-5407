@@ -10,6 +10,7 @@ import org.usfirst.frc.team5407.robot.commands.CloseClaw;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
+import org.usfirst.frc.team5407.robot.commands.TowerTilt;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
 import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
@@ -47,6 +48,7 @@ public class OI {
 	private JoystickButton b12;
 	
 	// Create variables for stick 1
+	private JoystickButton trigger_1;
 	private JoystickButton b5_1; 
 	private JoystickButton b6_1; 
 	private JoystickButton b7_1; 
@@ -99,6 +101,7 @@ public class OI {
 //		b12.whenPressed(new SetWinchSetpoint(1));
 		
 		// Create buttons on stick 1
+		trigger_1 = new JoystickButton(stick1, 1);
 		b5_1 = new JoystickButton(stick1, 5);
 		b6_1 = new JoystickButton(stick1, 6);
 		b7_1 = new JoystickButton(stick1, 7);
@@ -109,8 +112,10 @@ public class OI {
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// Run commands on stick 1
+		trigger_1.whenPressed(new TowerTilt(true));
+		trigger_1.whenReleased(new TowerTilt(false));
 		b5_1.whenPressed(new WinchDoNothing());
-		b6_1.whileHeld(holdWinchPotPoint());
+//		b6_1.whileHeld(holdWinchPotPoint());
 		b7_1.whileHeld(new SetWinchSetpoint(0.3));
 		b8_1.whileHeld(new SetWinchSetpoint(0.4));
 		b9_1.whileHeld(new SetWinchSetpoint(0.5));
@@ -133,10 +138,14 @@ public class OI {
 	    return stick1.getY(); // Invert with minus sign if needed
 	}
 	
-	private Command holdWinchPotPoint() {
-	    double currentPotPoint = winch.getPotPoint();
-	    return new SetWinchSetpoint(currentPotPoint);
-	}
+//	private Command holdWinchPotPoint() {
+////	    double currentPotPoint = winch.returnPIDInput();
+////	    SmartDashboard.putNumber("Potentiometer currentPotPoint", currentPotPoint);
+////	    return new SetWinchSetpoint(currentPotPoint);
+////	    return new WinchDoNothing();
+////	    return new WinchGetSetPosition();
+//	    return new WinchGetPotPosition();
+//	}
 	
 	// // CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

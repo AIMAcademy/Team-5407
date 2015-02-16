@@ -22,7 +22,6 @@ public class SetWinchSetpoint extends Command {
     private AnalogPotentiometer potentiometer = RobotMap.winchPotentiometer;
     
     public SetWinchSetpoint(double setpoint) {
-//    	double potPoint = potentiometer.get();
     	this.setpoint = setpoint;
         requires(Robot.winch);
     }
