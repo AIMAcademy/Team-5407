@@ -20,22 +20,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class WinchDrive extends Command {
 	
-    DigitalInput winchLimitTop = RobotMap.winchLimitTop;
-    DigitalInput winchLimitBottom = RobotMap.winchLimitBottom;
-//    RobotMap.winchLimitTop.get();
-
     public WinchDrive() {
         // Use requires() here to declare subsystem dependencies
 		requires(Robot.winch);
     }
-    
-//	public boolean isTopSwitchOpen() {
-//		return winchLimitTop.get();
-//	}
-//
-//	public boolean isTopSwitchSet() {
-//		return limitSwitchup.get();
-//	}
 
     // Called just before this Command runs the first time
     protected void initialize() {

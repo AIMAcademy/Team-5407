@@ -22,6 +22,7 @@ public class Chassis extends Subsystem {
 	RobotDrive drive;
 	Talon talonLeft, talonRight;
 	Solenoid solenoid_gear_shift = new Solenoid(0);
+//	boolean state = false;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -55,6 +56,22 @@ public class Chassis extends Subsystem {
 
 	public void driveBackwards() {
 		drive.arcadeDrive(0.75, 0.0);
+	}
+	
+	public void reverseDrive(boolean state) {
+//		boolean normalDrive = true;
+		if(state == false){
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		}
+		else if(state == true){
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
+		}
+		else {
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		}
 	}
 
 	public void driveWithJoystick(Joystick stick) {

@@ -1,17 +1,20 @@
 package org.usfirst.frc.team5407.robot;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5407.robot.commands.CloseClaw;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
+import org.usfirst.frc.team5407.robot.commands.DriveReverse;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
 import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
 import org.usfirst.frc.team5407.robot.commands.WinchDoNothing;
 import org.usfirst.frc.team5407.robot.commands.WinchDrive;
+import org.usfirst.frc.team5407.robot.subsystems.Winch;
 // import org.usfirst.frc.team5407.robot.commands.SetElevatorSetpoint;
 // import org.usfirst.frc.team5407.robot.subsystems.Elevator;
 
@@ -38,6 +41,7 @@ public class OI {
 	
 	// create variables for stick 1
 	private JoystickButton b5_1; 
+	private JoystickButton b6_1; 
 	private JoystickButton b7_1; 
 	private JoystickButton b8_1; 
 	private JoystickButton b9_1;  
@@ -45,10 +49,8 @@ public class OI {
 	private JoystickButton b11_1;  
 	private JoystickButton b12_1; 
 
-	
-	public double liftSpeed = 0.75;
-
-	
+//	public double liftSpeed = 0.75;
+		
 	public OI() {
 		
 		stick = new Joystick(JOYSTICK_PORT);
@@ -57,7 +59,7 @@ public class OI {
 		// create buttons on stick 0
 		trigger = new JoystickButton(stick, 1);
 //		b2 = new JoystickButton(stick, 2);
-//		b3 = new JoystickButton(stick, 3);
+		b3 = new JoystickButton(stick, 3);
 //		b4 = new JoystickButton(stick, 4);
 //		b5 = new JoystickButton(stick, 5);
 //		b7 = new JoystickButton(stick, 7);
@@ -71,7 +73,8 @@ public class OI {
 		trigger.whenPressed(new GearShift(true));
 		trigger.whenReleased(new GearShift(false));
 //		b2.whileHeld(new UpArm());
-//		b3.whileHeld(new DownArm());
+		b3.whenPressed(new DriveReverse(true));
+		b3.whenReleased(new DriveReverse(false));
 //		b4.whenPressed(new OpenClaw());
 //		b5.whenPressed(new CloseClaw());
 //		b7.whenPressed(new SetWinchSetpoint(0));
@@ -83,26 +86,28 @@ public class OI {
 		
 		// create buttons on stick 1
 		b5_1 = new JoystickButton(stick1, 5);
+		b6_1 = new JoystickButton(stick1, 6);
 		b7_1 = new JoystickButton(stick1, 7);
 		b8_1 = new JoystickButton(stick1, 8);
 		b9_1 = new JoystickButton(stick1, 9);
-//		b10_1 = new JoystickButton(stick1, 10);
+		b10_1 = new JoystickButton(stick1, 10);
 //		b11_1 = new JoystickButton(stick1, 11);
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// run commands on stick 1
 		b5_1.whenPressed(new WinchDoNothing());
-		b7_1.whileHeld(new SetWinchSetpoint(0));
-		b8_1.whileHeld(new SetWinchSetpoint(0.2));
-		b9_1.whileHeld(new SetWinchSetpoint(0.4));
-//		b10_1.whenPressed(new SetWinchSetpoint(0.6));
+//		b6_1.whileHeld(new SetWinchSetpoint());
+		b7_1.whileHeld(new SetWinchSetpoint(0.3));
+		b8_1.whileHeld(new SetWinchSetpoint(0.4));
+		b9_1.whileHeld(new SetWinchSetpoint(0.5));
+		b10_1.whenPressed(new SetWinchSetpoint(0.6));
 //		b11_1.whenPressed(new SetWinchSetpoint(0.8));
 //		b12_1.whenPressed(new SetWinchSetpoint(1));
 		
     	// Put buttons on the SmartDashboard
-        SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.1));
-        SmartDashboard.putData("Winch 2 Totes", new SetWinchSetpoint(0.2));
-        SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.4));
+        SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.3));
+        SmartDashboard.putData("Winch 2 Totes", new SetWinchSetpoint(0.45));
+        SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.6));
 	}
 
 	public static Joystick getJoystick() {
@@ -112,7 +117,6 @@ public class OI {
 	public static double getStickY() {
 	    return stick1.getY(); //TODO Invert with minus sign if needed
 	}
-	
 	
 	// // CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

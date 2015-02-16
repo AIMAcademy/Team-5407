@@ -4,8 +4,11 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc.team5407.robot.Robot;
+import org.usfirst.frc.team5407.robot.RobotMap;
 
 /**
  * Move the elevator to a given location. This command finishes when it is within
@@ -16,9 +19,11 @@ public class SetWinchSetpoint extends Command {
     private double setpoint;
 	boolean state;
 	boolean finished = true;
+    private AnalogPotentiometer potentiometer = RobotMap.winchPotentiometer;
     
     public SetWinchSetpoint(double setpoint) {
-        this.setpoint = setpoint;
+    	double potPoint = potentiometer.get();
+    	this.setpoint = setpoint;
         requires(Robot.winch);
     }
 
