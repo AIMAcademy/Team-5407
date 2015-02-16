@@ -59,12 +59,11 @@ public class Chassis extends Subsystem {
 	}
 	
 	public void reverseDrive(boolean state) {
-//		boolean normalDrive = true;
-		if(state == false){
+		if(state == false){ // can also be (!state)
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		}
-		else if(state == true){
+		else if(state == true){  // can also be (state)
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 			drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
 		}

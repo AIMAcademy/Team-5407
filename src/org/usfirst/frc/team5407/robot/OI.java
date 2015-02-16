@@ -3,6 +3,7 @@ package org.usfirst.frc.team5407.robot;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5407.robot.commands.CloseClaw;
@@ -23,10 +24,16 @@ import org.usfirst.frc.team5407.robot.subsystems.Winch;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	// Map Joysticks to ports
 	public static final int JOYSTICK_PORT = 0;
 	public static final int JOYSTICK_PORT_1 = 1;
+	
+	// Create variables for Joysticks
 	private static Joystick stick; //TODO make all static
 	private static Joystick stick1;
+
+	// Create variables for stick 0
 	private JoystickButton trigger;
 	private JoystickButton b2;
 	private JoystickButton b3;
@@ -39,7 +46,7 @@ public class OI {
 	private JoystickButton b11;  
 	private JoystickButton b12;
 	
-	// create variables for stick 1
+	// Create variables for stick 1
 	private JoystickButton b5_1; 
 	private JoystickButton b6_1; 
 	private JoystickButton b7_1; 
@@ -48,15 +55,22 @@ public class OI {
 	private JoystickButton b10_1;  
 	private JoystickButton b11_1;  
 	private JoystickButton b12_1; 
+	
+	// Create property for Winch
+    private static Winch winch;
 
 //	public double liftSpeed = 0.75;
 		
 	public OI() {
 		
+		// Joysticks in ports 0 and 1
 		stick = new Joystick(JOYSTICK_PORT);
 		stick1 = new Joystick(JOYSTICK_PORT_1);
+		
+		// Set winch variable to the Winch subsystem
+		winch = Robot.winch;
 
-		// create buttons on stick 0
+		// Create buttons on stick 0
 		trigger = new JoystickButton(stick, 1);
 //		b2 = new JoystickButton(stick, 2);
 		b3 = new JoystickButton(stick, 3);
@@ -69,7 +83,7 @@ public class OI {
 //		b11 = new JoystickButton(stick, 11);
 //		b12 = new JoystickButton(stick, 12);
 		
-		// run commands on stick 0
+		// Run commands on stick 0
 		trigger.whenPressed(new GearShift(true));
 		trigger.whenReleased(new GearShift(false));
 //		b2.whileHeld(new UpArm());
@@ -84,7 +98,7 @@ public class OI {
 //		b11.whenPressed(new SetWinchSetpoint(0.8));
 //		b12.whenPressed(new SetWinchSetpoint(1));
 		
-		// create buttons on stick 1
+		// Create buttons on stick 1
 		b5_1 = new JoystickButton(stick1, 5);
 		b6_1 = new JoystickButton(stick1, 6);
 		b7_1 = new JoystickButton(stick1, 7);
@@ -94,15 +108,16 @@ public class OI {
 //		b11_1 = new JoystickButton(stick1, 11);
 //		b12_1 = new JoystickButton(stick1, 12);
 		
-		// run commands on stick 1
+		// Run commands on stick 1
 		b5_1.whenPressed(new WinchDoNothing());
-//		b6_1.whileHeld(new SetWinchSetpoint());
+		b6_1.whileHeld(holdWinchPotPoint());
 		b7_1.whileHeld(new SetWinchSetpoint(0.3));
 		b8_1.whileHeld(new SetWinchSetpoint(0.4));
 		b9_1.whileHeld(new SetWinchSetpoint(0.5));
 		b10_1.whenPressed(new SetWinchSetpoint(0.6));
 //		b11_1.whenPressed(new SetWinchSetpoint(0.8));
 //		b12_1.whenPressed(new SetWinchSetpoint(1));
+		
 		
     	// Put buttons on the SmartDashboard
         SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.3));
@@ -115,7 +130,12 @@ public class OI {
 	}
 	
 	public static double getStickY() {
-	    return stick1.getY(); //TODO Invert with minus sign if needed
+	    return stick1.getY(); // Invert with minus sign if needed
+	}
+	
+	private Command holdWinchPotPoint() {
+	    double currentPotPoint = winch.getPotPoint();
+	    return new SetWinchSetpoint(currentPotPoint);
 	}
 	
 	// // CREATING BUTTONS
