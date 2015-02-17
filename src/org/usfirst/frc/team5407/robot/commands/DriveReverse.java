@@ -28,7 +28,6 @@ public class DriveReverse extends Command {
 	protected void execute() {
 		Robot.chassis.reverseDrive(state);
 		finished = true;
-
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

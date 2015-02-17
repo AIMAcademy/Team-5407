@@ -43,6 +43,9 @@ public class Robot extends IterativeRobot {
     int session;
     Image frame;
 
+    CameraServer server;
+
+
     public static Winch winch;
     public static Chassis chassis;
 	public static Claw claw;
@@ -65,11 +68,15 @@ public class Robot extends IterativeRobot {
         winch = new Winch();
 		oi = new OI();
 		
+		// Camera settings to show on Smart Dashboard
+        server = CameraServer.getInstance();
+        server.setQuality(50);
+        //the camera name (ex "cam0") can be found through the roborio web interface
+        server.startAutomaticCapture("cam0");
+        
+		
 		// instantiate the command used for the autonomous period
 		autonomousCommand = new DriveStraightAuton();
-		
-		// try to use smart dashboard
-        // SmartDashboard.putData(winch);
         
 //        // for camera
 //        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
