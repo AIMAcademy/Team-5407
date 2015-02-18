@@ -34,7 +34,7 @@ public class OI {
 	private static Joystick stick; //TODO make all static
 	private static Joystick stick1;
 
-	// Create variables for stick 0
+	// Create variables for stick 0 (Logitech Extreme 3D)
 	private JoystickButton trigger;
 	private JoystickButton b2;
 	private JoystickButton b3;
@@ -47,7 +47,7 @@ public class OI {
 	private JoystickButton b11;  
 	private JoystickButton b12;
 	
-	// Create variables for stick 1
+	// Create variables for stick 1 (Logitech Attack 3)
 	private JoystickButton trigger_1;
 	private JoystickButton b5_1; 
 	private JoystickButton b6_1; 
@@ -75,7 +75,7 @@ public class OI {
 		// Create buttons on stick 0
 		trigger = new JoystickButton(stick, 1);
 //		b2 = new JoystickButton(stick, 2);
-		b3 = new JoystickButton(stick, 3);
+		b2 = new JoystickButton(stick, 3);
 //		b4 = new JoystickButton(stick, 4);
 //		b5 = new JoystickButton(stick, 5);
 //		b7 = new JoystickButton(stick, 7);
@@ -89,8 +89,8 @@ public class OI {
 		trigger.whenPressed(new GearShift(true));
 		trigger.whenReleased(new GearShift(false));
 //		b2.whileHeld(new UpArm());
-		b3.whenPressed(new DriveReverse(true));
-		b3.whenReleased(new DriveReverse(false));
+		b2.whenPressed(new DriveReverse(true));
+		b2.whenReleased(new DriveReverse(false));
 //		b4.whenPressed(new OpenClaw());
 //		b5.whenPressed(new CloseClaw());
 //		b7.whenPressed(new SetWinchSetpoint(0));
@@ -102,24 +102,25 @@ public class OI {
 		
 		// Create buttons on stick 1
 		trigger_1 = new JoystickButton(stick1, 1);
-		b5_1 = new JoystickButton(stick1, 5);
+//		b5_1 = new JoystickButton(stick1, 5);
 		b6_1 = new JoystickButton(stick1, 6);
 		b7_1 = new JoystickButton(stick1, 7);
 		b8_1 = new JoystickButton(stick1, 8);
 		b9_1 = new JoystickButton(stick1, 9);
-		b10_1 = new JoystickButton(stick1, 10);
+//		b10_1 = new JoystickButton(stick1, 10);
 //		b11_1 = new JoystickButton(stick1, 11);
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// Run commands on stick 1
 		trigger_1.whenPressed(new TowerTilt(true));
 		trigger_1.whenReleased(new TowerTilt(false));
-		b5_1.whenPressed(new WinchDoNothing());
+//		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
+		b6_1.whileHeld(new SetWinchSetpoint(0.3));
 		b7_1.whileHeld(new SetWinchSetpoint(0.3));
 		b8_1.whileHeld(new SetWinchSetpoint(0.4));
 		b9_1.whileHeld(new SetWinchSetpoint(0.5));
-		b10_1.whenPressed(new SetWinchSetpoint(0.6));
+//		b10_1.whenPressed(new SetWinchSetpoint(0.6));
 //		b11_1.whenPressed(new SetWinchSetpoint(0.8));
 //		b12_1.whenPressed(new SetWinchSetpoint(1));
 		
