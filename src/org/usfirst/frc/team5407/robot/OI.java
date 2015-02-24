@@ -163,6 +163,10 @@ public class OI {
 	    return stick1.getY(); // Invert with minus sign if needed
 	}
 	
+	public static double getStick2Y() {
+	    return stick2.getY(); // Invert with minus sign if needed
+	}
+	
 //	private Command holdWinchPotPoint() {
 ////	    double currentPotPoint = winch.returnPIDInput();
 ////	    SmartDashboard.putNumber("Potentiometer currentPotPoint", currentPotPoint);
