@@ -78,12 +78,12 @@ public class Chassis extends Subsystem {
 		}
 	}
 
-	public void driveWithJoystick(Joystick stick) {
+	public void driveWithJoystick(Joystick stick0) {
 		if(reverseState==true) {
-			drive.arcadeDrive(stick.getY(), -stick.getX());
+			drive.arcadeDrive(stick0.getY(), -stick0.getX());
 		}
 		else {
-			drive.arcadeDrive(stick);
+			drive.arcadeDrive(stick0);
 		}
 	}
 

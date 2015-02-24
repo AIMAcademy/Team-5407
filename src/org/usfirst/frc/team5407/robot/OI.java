@@ -27,12 +27,14 @@ import org.usfirst.frc.team5407.robot.subsystems.Winch;
 public class OI {
 	
 	// Map Joysticks to ports
-	public static final int JOYSTICK_PORT = 0;
+	public static final int JOYSTICK_PORT_0 = 0;
 	public static final int JOYSTICK_PORT_1 = 1;
+	public static final int JOYSTICK_PORT_2 = 2;
 	
 	// Create variables for Joysticks
-	private static Joystick stick; //TODO make all static
+	private static Joystick stick0; //TODO make all static
 	private static Joystick stick1;
+	private static Joystick stick2; 
 
 	// Create variables for stick 0 (Logitech Extreme 3D)
 	private JoystickButton trigger;
@@ -58,6 +60,17 @@ public class OI {
 	private JoystickButton b11_1;  
 	private JoystickButton b12_1; 
 	
+	// Create variables for stick 2 (Logitech Attack 3)
+	private JoystickButton trigger_2;
+	private JoystickButton b5_2; 
+	private JoystickButton b6_2; 
+	private JoystickButton b7_2; 
+	private JoystickButton b8_2; 
+	private JoystickButton b9_2;  
+	private JoystickButton b10_2;  
+	private JoystickButton b11_2;  
+	private JoystickButton b12_2; 
+	
 	// Create property for Winch
     private static Winch winch;
 
@@ -66,16 +79,16 @@ public class OI {
 	public OI() {
 		
 		// Joysticks in ports 0 and 1
-		stick = new Joystick(JOYSTICK_PORT);
+		stick0 = new Joystick(JOYSTICK_PORT_0);
 		stick1 = new Joystick(JOYSTICK_PORT_1);
+		stick2 = new Joystick(JOYSTICK_PORT_2);
 		
 		// Set winch variable to the Winch subsystem
 		winch = Robot.winch;
 
 		// Create buttons on stick 0
-		trigger = new JoystickButton(stick, 1);
-//		b2 = new JoystickButton(stick, 2);
-		b2 = new JoystickButton(stick, 3);
+		trigger = new JoystickButton(stick0, 1);
+		b2 = new JoystickButton(stick0, 2);
 //		b4 = new JoystickButton(stick, 4);
 //		b5 = new JoystickButton(stick, 5);
 //		b7 = new JoystickButton(stick, 7);
@@ -124,6 +137,17 @@ public class OI {
 //		b11_1.whenPressed(new SetWinchSetpoint(0.8));
 //		b12_1.whenPressed(new SetWinchSetpoint(1));
 		
+		// Create buttons on stick 2
+		trigger_2 = new JoystickButton(stick2, 1);
+		b6_2 = new JoystickButton(stick2, 6);
+		b7_2 = new JoystickButton(stick2, 7);
+		b8_2 = new JoystickButton(stick2, 8);
+		b9_2 = new JoystickButton(stick2, 9);
+		
+		// Run commands on stick 2
+		trigger_2.whenPressed(new TowerTilt(true));
+		trigger_2.whenReleased(new TowerTilt(false));
+		
 		
     	// Put buttons on the SmartDashboard
         SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.3));
@@ -131,8 +155,8 @@ public class OI {
         SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.6));
 	}
 
-	public static Joystick getJoystick() {
-		return stick;
+	public static Joystick getJoystick0() {
+		return stick0;
 	}
 	
 	public static double getStickY() {
