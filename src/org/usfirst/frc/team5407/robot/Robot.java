@@ -69,10 +69,10 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
 		// Camera settings to show on Smart Dashboard
-        server = CameraServer.getInstance();
-        server.setQuality(50);
+//        server = CameraServer.getInstance();
+//        server.setQuality(50);
         //the camera name (ex "cam0") can be found through the roborio web interface
-        server.startAutomaticCapture("cam0");
+//        server.startAutomaticCapture("cam0");
         
 		
 		// instantiate the command used for the autonomous period
