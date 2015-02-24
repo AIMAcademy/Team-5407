@@ -13,12 +13,17 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author robotics
  */
-public class CloseClaw extends Command { //import command remove commandbase
+public class ClawClose extends Command { //import command remove commandbase
 
-	public CloseClaw() {
+	boolean finished = false;
+	boolean state;
+	
+	public ClawClose(boolean state) {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.claw); //TODO Robot.claw and import Robot
-		setTimeout(.4);
+//		requires(Robot.claw); //TODO Robot.claw and import Robot
+//		setTimeout(.4);
+		requires(Robot.claw);
+		this.state = state;
 	}
 
 	// Called just before this Command runs the first time
@@ -27,12 +32,13 @@ public class CloseClaw extends Command { //import command remove commandbase
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.claw.close();
+		Robot.claw.clawClose(state);
+		finished = true;
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return isTimedOut();
+		return finished;
 	}
 
 	// Called once after isFinished returns true

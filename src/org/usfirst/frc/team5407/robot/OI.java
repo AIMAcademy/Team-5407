@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team5407.robot.commands.CloseClaw;
+import org.usfirst.frc.team5407.robot.commands.ClawClose;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
@@ -26,13 +26,15 @@ import org.usfirst.frc.team5407.robot.subsystems.Winch;
  */
 public class OI {
 	
+	// TODO Make all buttons static
+	
 	// Map Joysticks to ports
 	public static final int JOYSTICK_PORT_0 = 0;
 	public static final int JOYSTICK_PORT_1 = 1;
 	public static final int JOYSTICK_PORT_2 = 2;
 	
 	// Create variables for Joysticks
-	private static Joystick stick0; //TODO make all static
+	private static Joystick stick0;
 	private static Joystick stick1;
 	private static Joystick stick2; 
 
@@ -139,14 +141,14 @@ public class OI {
 		
 		// Create buttons on stick 2
 		trigger_2 = new JoystickButton(stick2, 1);
-		b6_2 = new JoystickButton(stick2, 6);
-		b7_2 = new JoystickButton(stick2, 7);
-		b8_2 = new JoystickButton(stick2, 8);
-		b9_2 = new JoystickButton(stick2, 9);
+//		b6_2 = new JoystickButton(stick2, 6);
+//		b7_2 = new JoystickButton(stick2, 7);
+//		b8_2 = new JoystickButton(stick2, 8);
+//		b9_2 = new JoystickButton(stick2, 9);
 		
 		// Run commands on stick 2
-		trigger_2.whenPressed(new TowerTilt(true));
-		trigger_2.whenReleased(new TowerTilt(false));
+		trigger_2.whenPressed(new ClawClose(true));
+		trigger_2.whenReleased(new ClawClose(false));
 		
 		
     	// Put buttons on the SmartDashboard
