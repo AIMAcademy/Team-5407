@@ -22,7 +22,6 @@ import org.usfirst.frc.team5407.robot.commands.DriveStraightAuton;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.Claw;
-import org.usfirst.frc.team5407.robot.subsystems.ClawLift;
 import org.usfirst.frc.team5407.robot.subsystems.Winch;
 import org.usfirst.frc.team5407.robot.RobotMap;
 
@@ -50,7 +49,6 @@ public class Robot extends IterativeRobot {
     public static Chassis chassis;
 	public static Claw claw;
 	public static Arm arm;
-	public static ClawLift clawlift;
 	public static OI oi;
     
 	Command autonomousCommand;
@@ -61,7 +59,6 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		RobotMap.init();
-		clawlift = new ClawLift();
 		arm = new Arm();
 		claw = new Claw();
 		chassis = new Chassis();
