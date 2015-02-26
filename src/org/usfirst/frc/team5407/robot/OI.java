@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5407.robot.commands.ClawClose;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
+import org.usfirst.frc.team5407.robot.commands.ForkliftOpen;
 import org.usfirst.frc.team5407.robot.commands.OpenClaw;
 import org.usfirst.frc.team5407.robot.commands.TowerTilt;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
@@ -53,6 +54,7 @@ public class OI {
 	
 	// Create variables for stick 1 (Logitech Attack 3)
 	private JoystickButton trigger_1;
+	private JoystickButton b2_1;
 	private JoystickButton b5_1; 
 	private JoystickButton b6_1; 
 	private JoystickButton b7_1; 
@@ -117,7 +119,8 @@ public class OI {
 		
 		// Create buttons on stick 1
 		trigger_1 = new JoystickButton(stick1, 1);
-//		b5_1 = new JoystickButton(stick1, 5);
+		b2_1 = new JoystickButton(stick1, 2); 
+		b5_1 = new JoystickButton(stick1, 5);
 		b6_1 = new JoystickButton(stick1, 6);
 		b7_1 = new JoystickButton(stick1, 7);
 		b8_1 = new JoystickButton(stick1, 8);
@@ -129,6 +132,8 @@ public class OI {
 		// Run commands on stick 1
 		trigger_1.whenPressed(new TowerTilt(true));
 		trigger_1.whenReleased(new TowerTilt(false));
+		b2_1.whenPressed(new ForkliftOpen(true));
+		b2_1.whenReleased(new ForkliftOpen(false));
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
 		b6_1.whileHeld(new SetWinchSetpoint(0.3));
