@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5407.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -18,7 +17,9 @@ import com.ni.vision.NIVision.ShapeMode;
 //import edu.wpi.first.wpilibj.SampleRobot;
 //import edu.wpi.first.wpilibj.Timer;
 
-import org.usfirst.frc.team5407.robot.commands.DriveStraightAuton;
+
+import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
+import org.usfirst.frc.team5407.robot.commands.AutonDriveStraight;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.Claw;
@@ -73,7 +74,8 @@ public class Robot extends IterativeRobot {
         
 		
 		// instantiate the command used for the autonomous period
-		autonomousCommand = new DriveStraightAuton();
+//		autonomousCommand = new AutonDriveStraight();
+		autonomousCommand = new AutonDoNothing();
         
 //        // for camera
 //        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);

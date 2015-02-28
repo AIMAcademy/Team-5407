@@ -11,13 +11,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author robotics
  */
-public class DriveStraightAuton extends CommandGroup {
+public class AutonDoNothing extends CommandGroup {
 
-	public DriveStraightAuton() {
+	public AutonDoNothing() {
 		// Add Commands here:
-		addSequential(new DriveStraight(1));
-		addSequential(new LeftTurn(1));
-		addSequential(new DriveStraight(1));
 
 		// addSequential(new Command2());
 		// these will run in order.
