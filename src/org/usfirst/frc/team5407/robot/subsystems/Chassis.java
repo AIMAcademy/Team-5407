@@ -64,6 +64,10 @@ public class Chassis extends Subsystem {
 		drive.arcadeDrive(0.75, 0.0);
 	}
 	
+	public void driveTurn90() {
+		drive.arcadeDrive(0, -1);
+	}
+	
 	public void doNothing() {
 		drive.arcadeDrive(0, 0.0);
 	}

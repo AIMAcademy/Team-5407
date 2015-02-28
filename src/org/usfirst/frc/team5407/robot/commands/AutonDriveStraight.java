@@ -18,9 +18,10 @@ public class AutonDriveStraight extends CommandGroup {
 	public AutonDriveStraight() {
 		// Add Commands here:
 		addSequential(new DriveStraightFull(2));
-		addSequential(new DriveStraight75(1));
+		addSequential(new DriveStraight75(1.5));
 		addSequential(new DriveDoNothing(1));
 		addSequential(new DriveBackwards75(.5));
+		addSequential(new LeftTurn(2));
 
 		// addSequential(new Command2());
 		// these will run in order.
