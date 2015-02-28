@@ -18,7 +18,6 @@ public class DriveStraightFull extends Command {
 	public DriveStraightFull(double timeout) {
 		m_timeout = timeout;
 		requires(Robot.chassis);
-
 	}
 
 	// Called just before this Command runs the first time
