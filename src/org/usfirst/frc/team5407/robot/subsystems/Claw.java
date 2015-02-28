@@ -10,6 +10,7 @@ import org.usfirst.frc.team5407.robot.RobotMap;
 import org.usfirst.frc.team5407.robot.commands.ClawDoNothing;
 import org.usfirst.frc.team5407.robot.commands.ClawDrive;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -25,6 +26,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Claw extends Subsystem {
 	SpeedController motor = new VictorSP(3);
 	Solenoid solenoid_claw_close = new Solenoid(2);
+    DigitalInput clawLimitRetract = RobotMap.clawLimitRetract;
 
 	// here. Call these from Commands.
 
@@ -42,8 +44,24 @@ public class Claw extends Subsystem {
 //	}
 
 	public void driveClaw(double speed) {
-	  motor.set(speed);
+//	  motor.set(speed);
+		if(OI.getStick2Y() < -0.1){
+			motor.set(speed);
+		}
+		else if(OI.getStick2Y() > 0.1){
+			if(RobotMap.clawLimitRetract.get() == false) {
+				motor.set(0);
+			}
+			else {
+				motor.set(speed);
+			}
+		}
+		else {
+			motor.set(0);
+		}
 }
+
+	
 	public void doNothing() {
 		motor.set(0);
 	}
