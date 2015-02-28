@@ -74,8 +74,8 @@ public class Robot extends IterativeRobot {
         
 		
 		// instantiate the command used for the autonomous period
-//		autonomousCommand = new AutonDriveStraight();
-		autonomousCommand = new AutonDoNothing();
+		autonomousCommand = new AutonDriveStraight();
+//		autonomousCommand = new AutonDoNothing();
         
 //        // for camera
 //        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);

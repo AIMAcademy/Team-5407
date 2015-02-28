@@ -45,7 +45,7 @@ public class Chassis extends Subsystem {
 	}
 
 	public void staight() {
-		drive.arcadeDrive(-0.75, 0.0);
+		drive.arcadeDrive(0.75, 0.0);
 	}
 
 	public void turnLeft() {
