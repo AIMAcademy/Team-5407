@@ -12,10 +12,10 @@ import org.usfirst.frc.team5407.robot.Robot;
  *
  * @author robotics
  */
-public class DriveStraight extends Command {
+public class DriveStraight75 extends Command {
 	private double m_timeout;
 
-	public DriveStraight(double timeout) {
+	public DriveStraight75(double timeout) {
 		m_timeout = timeout;
 		requires(Robot.chassis);
 
@@ -28,7 +28,7 @@ public class DriveStraight extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.chassis.staight();
+		Robot.chassis.straight75();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

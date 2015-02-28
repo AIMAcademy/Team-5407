@@ -44,8 +44,12 @@ public class Chassis extends Subsystem {
 		drive.setSafetyEnabled(false);
 	}
 
-	public void staight() {
-		drive.arcadeDrive(0.75, 0.0);
+	public void straightFull() {
+		drive.arcadeDrive(-1, 0.0);
+	}
+	
+	public void straight75() {
+		drive.arcadeDrive(-0.75, 0.0);
 	}
 
 	public void turnLeft() {
@@ -56,7 +60,7 @@ public class Chassis extends Subsystem {
 		drive.arcadeDrive(0.0, 0.5);
 	}
 
-	public void driveBackwards() {
+	public void driveBackwards75() {
 		drive.arcadeDrive(0.75, 0.0);
 	}
 	
