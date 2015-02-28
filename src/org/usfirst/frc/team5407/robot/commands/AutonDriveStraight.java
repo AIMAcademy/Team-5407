@@ -5,6 +5,8 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
+import java.util.concurrent.Delayed;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -15,8 +17,9 @@ public class AutonDriveStraight extends CommandGroup {
 
 	public AutonDriveStraight() {
 		// Add Commands here:
-		addSequential(new DriveStraightFull(4));
-		addSequential(new DriveStraight75(1));
+		addSequential(new DriveStraightFull(3));
+		addSequential(new DriveStraight75(2));
+		addSequential(new DriveDoNothing(1));
 		addSequential(new DriveBackwards75(.5));
 
 		// addSequential(new Command2());

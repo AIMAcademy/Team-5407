@@ -64,6 +64,10 @@ public class Chassis extends Subsystem {
 		drive.arcadeDrive(0.75, 0.0);
 	}
 	
+	public void doNothing() {
+		drive.arcadeDrive(0, 0.0);
+	}
+	
 	public void reverseDrive(boolean state) {
 		if(state == false){ // can also be (!state)
 			reverseState = false;
