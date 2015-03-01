@@ -12,8 +12,6 @@ public class WinchAuton extends Command {
 	}
 
 	protected void initialize() {
-		
-		
 	}
 
 	protected void execute() {
@@ -26,12 +24,10 @@ public class WinchAuton extends Command {
 	}
 
 	protected void end() {
-		
 	}
 
 	protected void interrupted() {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

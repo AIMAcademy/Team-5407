@@ -12,15 +12,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author robotics
  */
-public class AutonDriveStraight extends CommandGroup {
+public class AutonScoreToteAndCan extends CommandGroup {
 
-	public AutonDriveStraight() {
+	public AutonScoreToteAndCan() {
 		// Add Commands here:
-		addSequential(new DriveStraightFull(2));
-		addSequential(new DriveStraight75(2));
+		addSequential(new WinchAuton(2));
+		addSequential(new DriveStraightFull(1));
 		addSequential(new DriveDoNothing(1));
-		addSequential(new DriveBackwards75(.5));
-		addSequential(new LeftTurn(2));
+		addSequential(new DrivePivotRight(1));
+		addSequential(new ExtendClaw(.5));
+		addSequential(new ClawGrab(1));
+		addSequential(new ClawRetract(.5));
+		addSequential(new DriveStraightFull(3));
+		addSequential(new DriveTurn90Degrees(.5));
+		//addSequential(new LeftTurn(2));
 
 		// addSequential(new Command2());
 		// these will run in order.

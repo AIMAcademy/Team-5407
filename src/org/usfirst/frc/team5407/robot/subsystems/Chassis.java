@@ -49,7 +49,10 @@ public class Chassis extends Subsystem {
 	}
 	
 	public void straight75() {
-		//drive.arcadeDrive(-0.75, 0.0);
+		drive.arcadeDrive(-0.75, 0.0);
+	}
+	
+	public void pivotRight() {
 		drive.tankDrive(-.25, -.5);
 	}
 

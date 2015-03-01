@@ -4,9 +4,9 @@ import org.usfirst.frc.team5407.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ClawDetract extends Command{
+public class ClawRetract extends Command{
 
-	public ClawDetract(int i) {
+	public ClawRetract(double i) {
 		requires(Robot.claw);
 		setTimeout(i);
 	}
