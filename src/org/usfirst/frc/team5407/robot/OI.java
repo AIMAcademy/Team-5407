@@ -157,9 +157,9 @@ public class OI {
 		
 		
     	// Put buttons on the SmartDashboard
-        SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.3));
-        SmartDashboard.putData("Winch 2 Totes", new SetWinchSetpoint(0.45));
-        SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.6));
+//        SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.3));
+//        SmartDashboard.putData("Winch 2 Totes", new SetWinchSetpoint(0.45));
+//        SmartDashboard.putData("Winch 3 Totes", new SetWinchSetpoint(0.6));
 	}
 
 	public static Joystick getJoystick0() {
