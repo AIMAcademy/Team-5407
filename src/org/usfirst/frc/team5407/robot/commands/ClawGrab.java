@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ClawGrab extends Command{
 
-	public ClawGrab(int i) {
+	public ClawGrab(double i) {
 		requires(Robot.claw);
 		setTimeout(i);
 	}

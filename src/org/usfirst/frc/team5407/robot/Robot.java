@@ -18,8 +18,10 @@ import com.ni.vision.NIVision.ShapeMode;
 //import edu.wpi.first.wpilibj.Timer;
 
 
+
 import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
 import org.usfirst.frc.team5407.robot.commands.AutonDriveStraight;
+import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.Claw;
@@ -74,7 +76,8 @@ public class Robot extends IterativeRobot {
         
 		
 		// instantiate the command used for the autonomous period
-		autonomousCommand = new AutonDriveStraight();
+		autonomousCommand = new AutonScoreCan();
+//		autonomousCommand = new AutonDriveStraight();
 //		autonomousCommand = new AutonDoNothing();
         
 //        // for camera
