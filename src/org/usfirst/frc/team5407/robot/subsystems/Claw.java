@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author robotics
  */
 public class Claw extends Subsystem {
-	SpeedController motor = new VictorSP(3);
+	public SpeedController motor = new VictorSP(3);
 	Solenoid solenoid_claw_close = new Solenoid(2);
     DigitalInput clawLimitRetract = RobotMap.clawLimitRetract;
 
