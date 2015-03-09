@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.ni.vision.NIVision;
@@ -16,6 +17,7 @@ import com.ni.vision.NIVision.ShapeMode;
 //import edu.wpi.first.wpilibj.CameraServer;
 //import edu.wpi.first.wpilibj.SampleRobot;
 //import edu.wpi.first.wpilibj.Timer;
+
 
 
 
@@ -47,7 +49,6 @@ public class Robot extends IterativeRobot {
 
     CameraServer server;
 
-
     public static Winch winch;
     public static Chassis chassis;
 	public static Claw claw;
@@ -55,7 +56,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
     
 	Command autonomousCommand;
-
+	SendableChooser autoChooser; 
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -67,6 +68,12 @@ public class Robot extends IterativeRobot {
 		chassis = new Chassis();
         winch = new Winch();
 		oi = new OI();
+		
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Default program", new AutonDoNothing());
+		autoChooser.addObject("drivestriaght", new AutonDriveStraight());
+		autoChooser.addObject("Score tote and can", new AutonScoreCan());  
+		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		
 		// Camera settings to show on Smart Dashboard
 //        server = CameraServer.getInstance();
@@ -96,6 +103,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
+	        autonomousCommand = (Command) autoChooser.getSelected();	
 			autonomousCommand.start();
 	}
 
