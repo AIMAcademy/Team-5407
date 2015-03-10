@@ -24,11 +24,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author robotics
  */
 public class ClawBack extends Subsystem {
-	public SpeedController motor = new VictorSP(3);
-	Solenoid solenoid_claw_close = new Solenoid(1);
+	public SpeedController motor = new VictorSP(RobotMap.VictorSP_Claw);
+	Solenoid solenoidClaw = new Solenoid(RobotMap.Solenoid_Claw_Back);
     DigitalInput clawLimitRetract = RobotMap.clawLimitRetract;
-
-	// here. Call these from Commands.
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
@@ -67,6 +65,6 @@ public class ClawBack extends Subsystem {
 	}
 
 	public void clawClose(boolean state) {
-		solenoid_claw_close.set(state);
+		solenoidClaw.set(state);
 	}
 }
