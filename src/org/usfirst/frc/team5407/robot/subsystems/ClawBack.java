@@ -7,8 +7,8 @@ package org.usfirst.frc.team5407.robot.subsystems;
 
 import org.usfirst.frc.team5407.robot.OI;
 import org.usfirst.frc.team5407.robot.RobotMap;
-import org.usfirst.frc.team5407.robot.commands.ClawDoNothing;
-import org.usfirst.frc.team5407.robot.commands.ClawDrive;
+import org.usfirst.frc.team5407.robot.commands.ClawBackDoNothing;
+import org.usfirst.frc.team5407.robot.commands.ClawBackDrive;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
@@ -23,16 +23,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  * @author robotics
  */
-public class Claw extends Subsystem {
+public class ClawBack extends Subsystem {
 	public SpeedController motor = new VictorSP(3);
-	Solenoid solenoid_claw_close = new Solenoid(2);
+	Solenoid solenoid_claw_close = new Solenoid(1);
     DigitalInput clawLimitRetract = RobotMap.clawLimitRetract;
 
 	// here. Call these from Commands.
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		setDefaultCommand(new ClawDrive());
+		setDefaultCommand(new ClawBackDrive());
 	}
 
 //	public void open() {

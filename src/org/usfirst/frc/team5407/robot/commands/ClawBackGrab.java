@@ -4,10 +4,10 @@ import org.usfirst.frc.team5407.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ClawRetract extends Command{
+public class ClawBackGrab extends Command{
 
-	public ClawRetract(double i) {
-		requires(Robot.claw);
+	public ClawBackGrab(double i) {
+		requires(Robot.claw_back);
 		setTimeout(i);
 	}
 	protected void initialize() {
@@ -16,7 +16,8 @@ public class ClawRetract extends Command{
 	}
 
 	protected void execute() {
-		Robot.claw.motor.set(-.3);
+		Robot.claw_back.clawClose(false);
+		
 	}
 
 	protected boolean isFinished() {

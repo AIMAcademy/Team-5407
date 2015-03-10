@@ -13,11 +13,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author robotics
  */
-public class ClawDoNothing extends Command {
+public class ClawBackDoNothing extends Command {
 
-	public ClawDoNothing() {
+	public ClawBackDoNothing() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.claw);
+		requires(Robot.claw_back);
 	}
 
 	// Called just before this Command runs the first time
@@ -26,7 +26,7 @@ public class ClawDoNothing extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.claw.doNothing();
+		Robot.claw_back.doNothing();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

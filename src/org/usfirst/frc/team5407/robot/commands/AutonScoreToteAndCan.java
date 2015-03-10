@@ -20,9 +20,9 @@ public class AutonScoreToteAndCan extends CommandGroup {
 		addSequential(new DriveStraightFull(1));
 		addSequential(new DriveDoNothing(1));
 		addSequential(new DrivePivotRight(1));
-		addSequential(new ExtendClaw(.5));
-		addSequential(new ClawGrab(1));
-		addSequential(new ClawRetract(.5));
+		addSequential(new ExtendClawBack(.5));
+		addSequential(new ClawBackGrab(1));
+		addSequential(new ClawBackRetract(.5));
 		addSequential(new DriveStraightFull(3));
 		addSequential(new DriveTurn90Degrees(.5));
 		//addSequential(new LeftTurn(2));

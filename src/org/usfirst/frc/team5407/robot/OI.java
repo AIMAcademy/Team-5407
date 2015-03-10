@@ -6,12 +6,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team5407.robot.commands.ClawClose;
+import org.usfirst.frc.team5407.robot.commands.ClawBackClose;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
-import org.usfirst.frc.team5407.robot.commands.ForkliftOpen;
-import org.usfirst.frc.team5407.robot.commands.OpenClaw;
-import org.usfirst.frc.team5407.robot.commands.TowerTilt;
+import org.usfirst.frc.team5407.robot.commands.OpenClawBack;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
 import org.usfirst.frc.team5407.robot.commands.SetWinchSetpoint;
@@ -130,10 +128,10 @@ public class OI {
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// Run commands on stick 1
-		trigger_1.whenPressed(new TowerTilt(true));
-		trigger_1.whenReleased(new TowerTilt(false));
-		b2_1.whenPressed(new ForkliftOpen(true));
-		b2_1.whenReleased(new ForkliftOpen(false));
+//		trigger_1.whenPressed(new (true));
+//		trigger_1.whenReleased(new (false));
+//		b2_1.whenPressed(new (true));
+//		b2_1.whenReleased(new (false));
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
 		b6_1.whileHeld(new SetWinchSetpoint(0.3));
@@ -152,8 +150,8 @@ public class OI {
 //		b9_2 = new JoystickButton(stick2, 9);
 		
 		// Run commands on stick 2
-		trigger_2.whenPressed(new ClawClose(true));
-		trigger_2.whenReleased(new ClawClose(false));
+		trigger_2.whenPressed(new ClawBackClose(true));
+		trigger_2.whenReleased(new ClawBackClose(false));
 		
 		
     	// Put buttons on the SmartDashboard

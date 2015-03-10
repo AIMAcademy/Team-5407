@@ -5,19 +5,25 @@
  */
 package org.usfirst.frc.team5407.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5407.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  * @author robotics
  */
-public class OpenClaw extends Command {
+public class ClawBackClose extends Command { //import command remove commandbase
 
-	public OpenClaw() {
+	boolean finished = false;
+	boolean state;
+	
+	public ClawBackClose(boolean state) {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.claw);
-		setTimeout(.4);
+//		requires(Robot.claw); //TODO Robot.claw and import Robot
+//		setTimeout(.4);
+		requires(Robot.claw_back);
+		this.state = state;
 	}
 
 	// Called just before this Command runs the first time
@@ -26,12 +32,13 @@ public class OpenClaw extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-//		Robot.claw.open();
+		Robot.claw_back.clawClose(state);
+		finished = true;
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return isTimedOut();
+		return finished;
 	}
 
 	// Called once after isFinished returns true

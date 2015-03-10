@@ -26,7 +26,7 @@ import org.usfirst.frc.team5407.robot.commands.AutonDriveStraight;
 import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
-import org.usfirst.frc.team5407.robot.subsystems.Claw;
+import org.usfirst.frc.team5407.robot.subsystems.ClawBack;
 import org.usfirst.frc.team5407.robot.subsystems.Winch;
 import org.usfirst.frc.team5407.robot.RobotMap;
 
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
 
     public static Winch winch;
     public static Chassis chassis;
-	public static Claw claw;
+	public static ClawBack claw_back;
 	public static Arm arm;
 	public static OI oi;
     
@@ -64,7 +64,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		arm = new Arm();
-		claw = new Claw();
+		claw_back = new ClawBack();
 		chassis = new Chassis();
         winch = new Winch();
 		oi = new OI();

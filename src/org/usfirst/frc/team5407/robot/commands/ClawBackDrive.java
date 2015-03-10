@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ClawDrive extends Command {
+public class ClawBackDrive extends Command {
 
-    public ClawDrive() {
+    public ClawBackDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.claw);
+    	requires(Robot.claw_back);
     }
 
     // Called just before this Command runs the first time
@@ -23,10 +23,10 @@ public class ClawDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (Math.abs(OI.getStick2Y()) > 0.1) { //Adds a deadband to the joystick input
-		    Robot.claw.driveClaw(OI.getStick2Y());
+		    Robot.claw_back.driveClaw(OI.getStick2Y());
 		}
 		else {
-			Robot.claw.driveClaw(0.0);			
+			Robot.claw_back.driveClaw(0.0);			
 		}
     }
 

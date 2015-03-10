@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.usfirst.frc.team5407.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -5,37 +10,32 @@ import org.usfirst.frc.team5407.robot.Robot;
 
 /**
  *
+ * @author robotics
  */
-public class TowerTilt extends Command {
+public class OpenClawBack extends Command {
 
-	boolean finished = false;
-	boolean state;
-
-	public TowerTilt(boolean state) {
+	public OpenClawBack() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.winch);
-		this.state = state;
+		requires(Robot.claw_back);
+		setTimeout(.4);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		System.out.println("TowerTilt started");
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.winch.towerTilt(state);
-		finished = true;
+//		Robot.claw.open();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return finished;
+		return isTimedOut();
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		System.out.println("TowerTilt ended");
 	}
 
 	// Called when another command which requires one or more of the same
