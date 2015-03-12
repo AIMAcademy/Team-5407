@@ -70,8 +70,8 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program", new AutonDoNothing());
-		autoChooser.addObject("drivestriaght", new AutonDriveStraight());
+		autoChooser.addDefault("Default DoNothin", new AutonDoNothing());
+		autoChooser.addObject("Drive Striaght", new AutonDriveStraight());
 		autoChooser.addObject("Score tote and can", new AutonScoreCan());  
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		
