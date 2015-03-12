@@ -63,8 +63,8 @@ public class Winch extends PIDSubsystem {
         //setDefaultCommand(new MySpecialCommand());
 		// setDefaultCommand(new WinchDoNothing());
     	setDefaultCommand(new WinchDrive());
-		solenoid_tower_tilt.set(false);
-		solenoid_forklift_open.set(false);
+//		solenoid_tower_tilt.set(false);
+//		solenoid_forklift_open.set(false);
     }
     
 	/**

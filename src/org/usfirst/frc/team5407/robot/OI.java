@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5407.robot.commands.ClawBackClose;
+import org.usfirst.frc.team5407.robot.commands.ClawFrontClose;
+import org.usfirst.frc.team5407.robot.commands.ClawFrontTilt;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
 import org.usfirst.frc.team5407.robot.commands.OpenClawBack;
@@ -53,6 +55,7 @@ public class OI {
 	// Create variables for stick 1 (Logitech Attack 3)
 	private JoystickButton trigger_1;
 	private JoystickButton b2_1;
+	private JoystickButton b3_1;
 	private JoystickButton b5_1; 
 	private JoystickButton b6_1; 
 	private JoystickButton b7_1; 
@@ -118,6 +121,7 @@ public class OI {
 		// Create buttons on stick 1
 		trigger_1 = new JoystickButton(stick1, 1);
 		b2_1 = new JoystickButton(stick1, 2); 
+		b3_1 = new JoystickButton(stick1, 3);
 		b5_1 = new JoystickButton(stick1, 5);
 		b6_1 = new JoystickButton(stick1, 6);
 		b7_1 = new JoystickButton(stick1, 7);
@@ -128,10 +132,12 @@ public class OI {
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// Run commands on stick 1
-//		trigger_1.whenPressed(new (true));
-//		trigger_1.whenReleased(new (false));
-//		b2_1.whenPressed(new (true));
-//		b2_1.whenReleased(new (false));
+		trigger_1.whenPressed(new ClawFrontClose(true));
+		trigger_1.whenReleased(new ClawFrontClose(false));
+		b2_1.whenPressed(new ClawFrontTilt(1));
+		b2_1.whenReleased(new ClawFrontTilt(0));
+        b3_1.whenPressed(new ClawFrontTilt(-1));
+        b3_1.whenReleased(new ClawFrontTilt(0));
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
 		b6_1.whileHeld(new SetWinchSetpoint(0.3));

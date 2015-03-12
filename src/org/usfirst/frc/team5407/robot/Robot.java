@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,12 +22,15 @@ import com.ni.vision.NIVision.ShapeMode;
 
 
 
+
+
 import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
 import org.usfirst.frc.team5407.robot.commands.AutonDriveStraight;
 import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.ClawBack;
+import org.usfirst.frc.team5407.robot.subsystems.ClawFront;
 import org.usfirst.frc.team5407.robot.subsystems.Winch;
 import org.usfirst.frc.team5407.robot.RobotMap;
 
@@ -54,6 +58,7 @@ public class Robot extends IterativeRobot {
 	public static ClawBack claw_back;
 	public static Arm arm;
 	public static OI oi;
+	public static ClawFront claw_front;
     
 	Command autonomousCommand;
 	SendableChooser autoChooser; 
@@ -65,6 +70,7 @@ public class Robot extends IterativeRobot {
 		RobotMap.init();
 		arm = new Arm();
 		claw_back = new ClawBack();
+		claw_front = new ClawFront();
 		chassis = new Chassis();
         winch = new Winch();
 		oi = new OI();

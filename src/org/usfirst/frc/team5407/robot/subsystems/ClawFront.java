@@ -13,39 +13,25 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class ClawFront extends Subsystem {
-	public SpeedController motor = new VictorSP(RobotMap.VictorSP_Claw);
-	Solenoid solenoidClaw = new Solenoid(RobotMap.Solenoid_Claw_Back);
-    DigitalInput clawLimitRetract = RobotMap.clawLimitRetract;
+	public SpeedController motor = new VictorSP(RobotMap.VictorSP_Claw_Front);
+	Solenoid solenoidClawFront = new Solenoid(RobotMap.Solenoid_Claw_Front);
+  
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-	public void driveClaw(double speed) {
-//		  motor.set(speed);
-			if(OI.getStick2Y() < -0.1){
-				motor.set(speed);
-			}
-			else if(OI.getStick2Y() > 0.1){
-				if(RobotMap.clawLimitRetract.get() == false) {
-					motor.set(0);
-				}
-				else {
-					motor.set(speed);
-				}
-			}
-			else {
-				motor.set(0);
-			}
-	}
-		
 	public void doNothing() {
 		motor.set(0);
 	}
 
-	public void clawClose(boolean state) {
-		solenoidClaw.set(state);
+	public void clawCloseFront(boolean state) {
+		solenoidClawFront.set(state);
+	}
+	
+	public void clawFrontTilt(int tilt) {
+		motor.set(tilt);
 	}
 		
 }
