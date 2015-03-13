@@ -23,7 +23,7 @@ public class AutonDriveFromLandfillToAuto extends CommandGroup {
 //		addSequential(new LeftTurn(2));
 		
 		// Three variables: (timeout, speed, turn)
-		addSequential(new DriveRobot(2, -0.75, 0));
+		addSequential(new DriveRobot(3, -0.75, 0));
 		addSequential(new DriveRobot(1, 0, 0));
 		addSequential(new DriveRobot(1.5, 0, 0.55));
 
