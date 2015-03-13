@@ -11,6 +11,7 @@ import org.usfirst.frc.team5407.robot.commands.ClawFrontOpenClose;
 import org.usfirst.frc.team5407.robot.commands.ClawFrontTilt;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
+import org.usfirst.frc.team5407.robot.commands.GrippersOpenClose;
 import org.usfirst.frc.team5407.robot.commands.OpenClawBack;
 import org.usfirst.frc.team5407.robot.commands.UpArm;
 import org.usfirst.frc.team5407.robot.commands.GearShift;
@@ -67,6 +68,7 @@ public class OI {
 	
 	// Create variables for stick 2 (Logitech Attack 3)
 	private JoystickButton trigger_2;
+	private JoystickButton b3_2;
 	private JoystickButton b5_2; 
 	private JoystickButton b6_2; 
 	private JoystickButton b7_2; 
@@ -94,6 +96,7 @@ public class OI {
 		// Create buttons on stick 0
 		trigger = new JoystickButton(stick0, 1);
 		b2 = new JoystickButton(stick0, 2);
+		b3 = new JoystickButton(stick0, 3);
 //		b4 = new JoystickButton(stick, 4);
 //		b5 = new JoystickButton(stick, 5);
 //		b7 = new JoystickButton(stick, 7);
@@ -109,6 +112,8 @@ public class OI {
 //		b2.whileHeld(new UpArm());
 		b2.whenPressed(new DriveReverse(true));
 		b2.whenReleased(new DriveReverse(false));
+		b3.whenPressed(new GrippersOpenClose(true));
+		b3.whenReleased(new GrippersOpenClose(false));
 //		b4.whenPressed(new OpenClaw());
 //		b5.whenPressed(new CloseClaw());
 //		b7.whenPressed(new SetWinchSetpoint(0));
@@ -134,10 +139,10 @@ public class OI {
 		// Run commands on stick 1
 		trigger_1.whenPressed(new ClawFrontOpenClose(true));
 		trigger_1.whenReleased(new ClawFrontOpenClose(false));
-		b2_1.whileHeld(new ClawFrontTilt());
+//		b2_1.whileHeld(new ClawFrontTilt());
 //		b2_1.whenReleased(new ClawFrontTilt());
-        b3_1.whileHeld(new ClawFrontTilt());
-//        b3_1.whenReleased(new ClawFrontTilt());
+//      b3_1.whileHeld(new ClawFrontTilt());
+//      b3_1.whenReleased(new ClawFrontTilt());
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
 		b6_1.whileHeld(new SetWinchSetpoint(0.3));
@@ -150,6 +155,7 @@ public class OI {
 		
 		// Create buttons on stick 2
 		trigger_2 = new JoystickButton(stick2, 1);
+//		b3_2 = new JoystickButton(stick2, 3);
 //		b6_2 = new JoystickButton(stick2, 6);
 //		b7_2 = new JoystickButton(stick2, 7);
 //		b8_2 = new JoystickButton(stick2, 8);
@@ -158,7 +164,8 @@ public class OI {
 		// Run commands on stick 2
 		trigger_2.whenPressed(new ClawBackOpenClose(true));
 		trigger_2.whenReleased(new ClawBackOpenClose(false));
-		
+//		b3_2.whenPressed(new GrippersOpenClose(true));
+//		b3_2.whenReleased(new GrippersOpenClose(false));		
 		
     	// Put buttons on the SmartDashboard
 //        SmartDashboard.putData("Winch 1 Tote", new SetWinchSetpoint(0.3));

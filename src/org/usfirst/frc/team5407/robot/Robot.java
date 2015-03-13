@@ -24,6 +24,7 @@ import com.ni.vision.NIVision.ShapeMode;
 
 
 
+
 import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
 import org.usfirst.frc.team5407.robot.commands.AutonDriveStraight;
 import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
@@ -31,6 +32,7 @@ import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.ClawBack;
 import org.usfirst.frc.team5407.robot.subsystems.ClawFront;
+import org.usfirst.frc.team5407.robot.subsystems.Grippers;
 import org.usfirst.frc.team5407.robot.subsystems.Winch;
 import org.usfirst.frc.team5407.robot.RobotMap;
 
@@ -59,6 +61,7 @@ public class Robot extends IterativeRobot {
 	public static Arm arm;
 	public static OI oi;
 	public static ClawFront claw_front;
+	public static Grippers grippers;
     
 	Command autonomousCommand;
 	SendableChooser autoChooser; 
@@ -73,7 +76,9 @@ public class Robot extends IterativeRobot {
 		claw_front = new ClawFront();
 		chassis = new Chassis();
         winch = new Winch();
+        grippers = new Grippers();
 		oi = new OI();
+		
 		
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Default DoNothin", new AutonDoNothing());
