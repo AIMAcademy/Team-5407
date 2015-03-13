@@ -25,6 +25,8 @@ public class Chassis extends Subsystem {
 	Talon talonLeft, talonRight;
 	Solenoid solenoid_gear_shift = new Solenoid(0);
 	boolean reverseState = false;
+	double speed = 0;
+	double turn = 0;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -42,6 +44,10 @@ public class Chassis extends Subsystem {
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		drive.setSafetyEnabled(false);
+	}
+	
+	public void driveRobot(double speed, double turn) {
+		drive.arcadeDrive(speed, turn);
 	}
 
 	public void straightFull() {

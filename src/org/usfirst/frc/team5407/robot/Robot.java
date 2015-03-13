@@ -26,7 +26,7 @@ import com.ni.vision.NIVision.ShapeMode;
 
 
 import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
-import org.usfirst.frc.team5407.robot.commands.AutonDriveStraight;
+import org.usfirst.frc.team5407.robot.commands.AutonDriveFromLandfillToAuto;
 import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
@@ -82,7 +82,7 @@ public class Robot extends IterativeRobot {
 		
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Default DoNothin", new AutonDoNothing());
-		autoChooser.addObject("Drive Striaght", new AutonDriveStraight());
+		autoChooser.addObject("Drive Landfill to Auto", new AutonDriveFromLandfillToAuto());
 		autoChooser.addObject("Score tote and can", new AutonScoreCan());  
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		

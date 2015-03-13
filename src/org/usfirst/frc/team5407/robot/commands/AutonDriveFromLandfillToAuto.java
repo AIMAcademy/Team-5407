@@ -12,15 +12,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author robotics
  */
-public class AutonDriveStraight extends CommandGroup {
+public class AutonDriveFromLandfillToAuto extends CommandGroup {
 
-	public AutonDriveStraight() {
+	public AutonDriveFromLandfillToAuto() {
 		// Add Commands here:
-		addSequential(new DriveStraightFull(2));
-		addSequential(new DriveStraight75(2));
-		addSequential(new DriveDoNothing(1));
-		addSequential(new DriveBackwards75(.5));
-		addSequential(new LeftTurn(2));
+//		addSequential(new DriveStraightFull(2));
+//		addSequential(new DriveStraight75(2));
+//		addSequential(new DriveDoNothing(1));
+//		addSequential(new DriveBackwards75(.5));
+//		addSequential(new LeftTurn(2));
+		
+		// Three variables: (timeout, speed, turn)
+		addSequential(new DriveRobot(2, -0.75, 0));
+		addSequential(new DriveRobot(1, 0, 0));
+		addSequential(new DriveRobot(1.5, 0, 0.55));
 
 		// addSequential(new Command2());
 		// these will run in order.
