@@ -17,10 +17,10 @@ public class AutonScoreCan extends CommandGroup {
 	public AutonScoreCan() {
 		// Add Commands here:
 //		addSequential(new ClawGrab(.5));
-		addSequential(new DriveStraightFull(1));
+//		addSequential(new DriveStraightFull(1));
 //		addSequential(new DriveStraight75(.5));
 		addSequential(new DriveDoNothing(1));
-		addSequential(new LeftTurn(2));
+//		addSequential(new LeftTurn(2));
 //		addSequential(new DrivePivotRight(1));
 //		addSequential(new ExtendClaw(.5));
 //		addSequential(new ClawRetract(.5));

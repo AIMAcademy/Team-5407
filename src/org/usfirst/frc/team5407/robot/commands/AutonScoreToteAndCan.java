@@ -16,15 +16,15 @@ public class AutonScoreToteAndCan extends CommandGroup {
 
 	public AutonScoreToteAndCan() {
 		// Add Commands here:
-		addSequential(new WinchAuton(2));
-		addSequential(new DriveStraightFull(1));
-		addSequential(new DriveDoNothing(1));
-		addSequential(new DrivePivotRight(1));
-		addSequential(new ExtendClawBack(.5));
-		addSequential(new ClawBackGrab(1));
-		addSequential(new ClawBackRetract(.5));
-		addSequential(new DriveStraightFull(3));
-		addSequential(new DriveTurn90Degrees(.5));
+//		addSequential(new WinchAuton(2));
+//		addSequential(new DriveStraightFull(1));
+//		addSequential(new DriveDoNothing(1));
+//		addSequential(new DrivePivotRight(1));
+//		addSequential(new ExtendClawBack(.5));
+//		addSequential(new ClawBackGrab(1));
+//		addSequential(new ClawBackRetract(.5));
+//		addSequential(new DriveStraightFull(3));
+//		addSequential(new DriveTurn90Degrees(.5));
 		//addSequential(new LeftTurn(2));
 
 		// addSequential(new Command2());
