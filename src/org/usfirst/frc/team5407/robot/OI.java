@@ -145,10 +145,10 @@ public class OI {
 //      b3_1.whenReleased(new ClawFrontTilt());
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
-		b6_1.whileHeld(new SetWinchSetpoint(0.3));
-		b7_1.whileHeld(new SetWinchSetpoint(0.3));
-		b8_1.whileHeld(new SetWinchSetpoint(0.4));
-		b9_1.whileHeld(new SetWinchSetpoint(0.5));
+//		b6_1.whileHeld(new SetWinchSetpoint(0.3));
+//		b7_1.whileHeld(new SetWinchSetpoint(0.3));
+//		b8_1.whileHeld(new SetWinchSetpoint(0.4));
+//		b9_1.whileHeld(new SetWinchSetpoint(0.5));
 //		b10_1.whenPressed(new SetWinchSetpoint(0.6));
 //		b11_1.whenPressed(new SetWinchSetpoint(0.8));
 //		b12_1.whenPressed(new SetWinchSetpoint(1));

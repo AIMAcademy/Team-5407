@@ -15,17 +15,18 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonScoreToteAndCan extends CommandGroup {
 
 	public AutonScoreToteAndCan() {
-		// Add Commands here:
-//		addSequential(new WinchAuton(2));
-//		addSequential(new DriveStraightFull(1));
-//		addSequential(new DriveDoNothing(1));
-//		addSequential(new DrivePivotRight(1));
-//		addSequential(new ExtendClawBack(.5));
-//		addSequential(new ClawBackGrab(1));
-//		addSequential(new ClawBackRetract(.5));
-//		addSequential(new DriveStraightFull(3));
-//		addSequential(new DriveTurn90Degrees(.5));
-		//addSequential(new LeftTurn(2));
+		
+		// WinchAuton has two variables: (timeout, speed,)
+		// DriveRobot has three variables: (timeout, speed, turn)
+//		addSequential(new SetWinchSetpoint(0.52));
+		addSequential(new WinchAuton(2, 1));
+		addSequential(new WinchAuton(.1, 0));
+		addSequential(new DriveRobot(2, -0.5, 0));
+		addSequential(new GrippersOpenClose(false));
+		addSequential(new DriveRobot(2, -0.75, -0.25));
+		addSequential(new DriveRobot(.75, 0, -0.25));
+		addSequential(new DriveRobot(2, -0.75, 0));
+		addSequential(new DriveRobot(1.5, 0, -0.55));
 
 		// addSequential(new Command2());
 		// these will run in order.

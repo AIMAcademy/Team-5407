@@ -5,21 +5,25 @@ import org.usfirst.frc.team5407.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class WinchAuton extends Command {
+	
+	private double m_timeout;
+	private double speed;
 
-	public WinchAuton(int i) {
+	public WinchAuton(double timeout, double speed) {
+		m_timeout = timeout;
+		this.speed = speed;
+		setTimeout(m_timeout);
 		requires(Robot.winch);
-		setTimeout(i);
 	}
 
 	protected void initialize() {
 	}
 
 	protected void execute() {
-		Robot.winch.driveWinch(1);
+		Robot.winch.driveWinch(speed);
 	}
 
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return isTimedOut();
 	}
 

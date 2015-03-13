@@ -15,14 +15,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonDriveFromLandfillToAuto extends CommandGroup {
 
 	public AutonDriveFromLandfillToAuto() {
-		// Add Commands here:
-//		addSequential(new DriveStraightFull(2));
-//		addSequential(new DriveStraight75(2));
-//		addSequential(new DriveDoNothing(1));
-//		addSequential(new DriveBackwards75(.5));
-//		addSequential(new LeftTurn(2));
 		
-		// Three variables: (timeout, speed, turn)
+		// DriveRobot has three variables: (timeout, speed, turn)
 		addSequential(new DriveRobot(3, -0.75, 0));
 		addSequential(new DriveRobot(1, 0, 0));
 		addSequential(new DriveRobot(1.5, 0, 0.55));

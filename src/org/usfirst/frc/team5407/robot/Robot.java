@@ -25,9 +25,10 @@ import com.ni.vision.NIVision.ShapeMode;
 
 
 
+
 import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
 import org.usfirst.frc.team5407.robot.commands.AutonDriveFromLandfillToAuto;
-import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
+import org.usfirst.frc.team5407.robot.commands.AutonScoreToteAndCan;
 import org.usfirst.frc.team5407.robot.subsystems.Arm;
 import org.usfirst.frc.team5407.robot.subsystems.Chassis;
 import org.usfirst.frc.team5407.robot.subsystems.ClawBack;
@@ -83,7 +84,7 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Default DoNothin", new AutonDoNothing());
 		autoChooser.addObject("Drive Landfill to Auto", new AutonDriveFromLandfillToAuto());
-		autoChooser.addObject("Score tote and can", new AutonScoreCan());  
+		autoChooser.addObject("Score tote and can", new AutonScoreToteAndCan());  
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		
 		// Camera settings to show on Smart Dashboard
@@ -94,9 +95,9 @@ public class Robot extends IterativeRobot {
         
 		
 		// instantiate the command used for the autonomous period
-		autonomousCommand = new AutonScoreCan();
+//		autonomousCommand = new AutonScoreCan();
 //		autonomousCommand = new AutonDriveStraight();
-//		autonomousCommand = new AutonDoNothing();
+		autonomousCommand = new AutonDoNothing();
         
 //        // for camera
 //        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
