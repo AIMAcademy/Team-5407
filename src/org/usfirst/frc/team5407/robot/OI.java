@@ -134,10 +134,10 @@ public class OI {
 		// Run commands on stick 1
 		trigger_1.whenPressed(new ClawFrontClose(true));
 		trigger_1.whenReleased(new ClawFrontClose(false));
-		b2_1.whenPressed(new ClawFrontTilt(1));
-		b2_1.whenReleased(new ClawFrontTilt(0));
-        b3_1.whenPressed(new ClawFrontTilt(-1));
-        b3_1.whenReleased(new ClawFrontTilt(0));
+		b2_1.whileHeld(new ClawFrontTilt());
+//		b2_1.whenReleased(new ClawFrontTilt());
+        b3_1.whileHeld(new ClawFrontTilt());
+//        b3_1.whenReleased(new ClawFrontTilt());
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
 		b6_1.whileHeld(new SetWinchSetpoint(0.3));
@@ -177,6 +177,15 @@ public class OI {
 	public static double getStick2Y() {
 	    return stick2.getY(); // Invert with minus sign if needed
 	}
+	
+	public static boolean get2_1() {
+	    return stick1.getRawButton(2);
+	}
+	
+	public static boolean get3_1() {
+	    return stick1.getRawButton(3);
+	}
+	
 	
 //	private Command holdWinchPotPoint() {
 ////	    double currentPotPoint = winch.returnPIDInput();
