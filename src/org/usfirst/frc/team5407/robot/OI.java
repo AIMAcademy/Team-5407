@@ -112,8 +112,8 @@ public class OI {
 //		b2.whileHeld(new UpArm());
 		b2.whenPressed(new DriveReverse(true));
 		b2.whenReleased(new DriveReverse(false));
-		b3.whenPressed(new GrippersOpenClose(true));
-		b3.whenReleased(new GrippersOpenClose(false));
+		b3.whenPressed(new GrippersOpenClose(false));
+		b3.whenReleased(new GrippersOpenClose(true));
 //		b4.whenPressed(new OpenClaw());
 //		b5.whenPressed(new CloseClaw());
 //		b7.whenPressed(new SetWinchSetpoint(0));

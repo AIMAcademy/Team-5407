@@ -18,7 +18,7 @@ public class Grippers extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-		solenoidGrippers.set(false);
+		solenoidGrippers.set(true);
     }
     
 	public void grippersOpenClose(boolean state) {
