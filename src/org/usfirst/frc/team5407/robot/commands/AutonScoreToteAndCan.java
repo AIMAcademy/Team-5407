@@ -23,10 +23,10 @@ public class AutonScoreToteAndCan extends CommandGroup {
 		addSequential(new WinchAuton(.1, 0));
 		addSequential(new DriveRobot(2, -0.5, 0));
 		addSequential(new GrippersOpenClose(false));
-		addSequential(new DriveRobot(2, -0.75, -0.25));
-		addSequential(new DriveRobot(.75, 0, -0.25));
-		addSequential(new DriveRobot(2, -0.75, 0));
-		addSequential(new DriveRobot(1.5, 0, -0.55));
+		addSequential(new DriveRobot(5.25, -0.75, -0.5));
+//		addSequential(new DriveRobot(1, 0, -0.25));
+		addSequential(new DriveRobot(1, -0.75, 0));
+		addSequential(new DriveRobot(1, 0, -0.5));
 
 		// addSequential(new Command2());
 		// these will run in order.
