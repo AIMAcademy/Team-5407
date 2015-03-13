@@ -139,9 +139,9 @@ public class OI {
 		// Run commands on stick 1
 		trigger_1.whenPressed(new ClawFrontOpenClose(true));
 		trigger_1.whenReleased(new ClawFrontOpenClose(false));
-//		b2_1.whileHeld(new ClawFrontTilt());
+		b2_1.whileHeld(new ClawFrontTilt());
 //		b2_1.whenReleased(new ClawFrontTilt());
-//      b3_1.whileHeld(new ClawFrontTilt());
+        b3_1.whileHeld(new ClawFrontTilt());
 //      b3_1.whenReleased(new ClawFrontTilt());
 //		b5_1.whenPressed(new WinchDoNothing());
 //		b6_1.whileHeld(holdWinchPotPoint());
