@@ -32,7 +32,7 @@ public class ClawBackOpenClose extends Command { //import command remove command
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.claw_back.clawOpenClose(state);
+		Robot.claw_back.clawBackOpenClose(state);
 		finished = true;
 	}
 

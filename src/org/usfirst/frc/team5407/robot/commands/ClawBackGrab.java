@@ -16,7 +16,7 @@ public class ClawBackGrab extends Command{
 	}
 
 	protected void execute() {
-		Robot.claw_back.clawOpenClose(false);
+		Robot.claw_back.clawBackOpenClose(false);
 		
 	}
 
