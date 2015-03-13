@@ -64,7 +64,7 @@ public class ClawBack extends Subsystem {
 		motor.set(0);
 	}
 
-	public void clawClose(boolean state) {
+	public void clawOpenClose(boolean state) {
 		solenoidClaw.set(state);
 	}
 }

@@ -13,16 +13,16 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author robotics
  */
-public class ClawBackClose extends Command { //import command remove commandbase
+public class ClawFrontOpenClose extends Command { //import command remove commandbase
 
 	boolean finished = false;
 	boolean state;
 	
-	public ClawBackClose(boolean state) {
+	public ClawFrontOpenClose(boolean state) {
 		// Use requires() here to declare subsystem dependencies
 //		requires(Robot.claw); //TODO Robot.claw and import Robot
 //		setTimeout(.4);
-		requires(Robot.claw_back);
+		requires(Robot.claw_front);
 		this.state = state;
 	}
 
@@ -32,7 +32,7 @@ public class ClawBackClose extends Command { //import command remove commandbase
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.claw_back.clawClose(state);
+		Robot.claw_front.clawOpenCloseFront(state);
 		finished = true;
 	}
 

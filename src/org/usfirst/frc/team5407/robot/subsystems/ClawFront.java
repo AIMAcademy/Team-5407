@@ -40,7 +40,7 @@ public class ClawFront extends Subsystem {
 		}
 	}
 	
-	public void clawCloseFront(boolean state) {
+	public void clawOpenCloseFront(boolean state) {
 		solenoidClawFront.set(state);
 	}
 	

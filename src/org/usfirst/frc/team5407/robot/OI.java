@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team5407.robot.commands.ClawBackClose;
-import org.usfirst.frc.team5407.robot.commands.ClawFrontClose;
+import org.usfirst.frc.team5407.robot.commands.ClawBackOpenClose;
+import org.usfirst.frc.team5407.robot.commands.ClawFrontOpenClose;
 import org.usfirst.frc.team5407.robot.commands.ClawFrontTilt;
 import org.usfirst.frc.team5407.robot.commands.DownArm;
 import org.usfirst.frc.team5407.robot.commands.DriveReverse;
@@ -132,8 +132,8 @@ public class OI {
 //		b12_1 = new JoystickButton(stick1, 12);
 		
 		// Run commands on stick 1
-		trigger_1.whenPressed(new ClawFrontClose(true));
-		trigger_1.whenReleased(new ClawFrontClose(false));
+		trigger_1.whenPressed(new ClawFrontOpenClose(true));
+		trigger_1.whenReleased(new ClawFrontOpenClose(false));
 		b2_1.whileHeld(new ClawFrontTilt());
 //		b2_1.whenReleased(new ClawFrontTilt());
         b3_1.whileHeld(new ClawFrontTilt());
@@ -156,8 +156,8 @@ public class OI {
 //		b9_2 = new JoystickButton(stick2, 9);
 		
 		// Run commands on stick 2
-		trigger_2.whenPressed(new ClawBackClose(true));
-		trigger_2.whenReleased(new ClawBackClose(false));
+		trigger_2.whenPressed(new ClawBackOpenClose(true));
+		trigger_2.whenReleased(new ClawBackOpenClose(false));
 		
 		
     	// Put buttons on the SmartDashboard
