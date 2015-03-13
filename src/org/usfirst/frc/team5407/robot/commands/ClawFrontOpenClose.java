@@ -32,7 +32,7 @@ public class ClawFrontOpenClose extends Command { //import command remove comman
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.claw_front.clawOpenCloseFront(state);
+		Robot.claw_front.clawFrontOpenClose(state);
 		finished = true;
 	}
 
