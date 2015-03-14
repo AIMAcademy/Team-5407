@@ -10,7 +10,7 @@ public class AutonGrabStepCan extends CommandGroup {
     public  AutonGrabStepCan() {
     	addSequential(new ClawBackOpenClose(true));
     	addSequential(new DriveRobot(0.25, 1, 0));
-    	addSequential(new ClawBackAuton(1.35, -1));
+    	addSequential(new ClawBackAuton(1.5, -1));
     	addSequential(new ClawBackOpenClose(false));
     	addSequential(new ClawBackAuton(1.25, 1));
     	addSequential(new DriveRobot(3, -.75, 0));
