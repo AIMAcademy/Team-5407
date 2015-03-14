@@ -21,7 +21,8 @@ public class AutonScoreCan extends CommandGroup {
 //		addSequential(new SetWinchSetpoint(0.52));
 		addParallel(new WinchAuton(1, 1));  // TODO TEST THIS TO MAKE SURE WINCHAUTON END CODE STOPS THE MOTOR
 //		addSequential(new WinchAuton(.1, 0));
-		addParallel(new DriveRobot(5, -0.5, 0));
+		addParallel(new DriveRobot(1, 0.5, 0));
+		addSequential(new DriveRobot(4, 0.5, 0));
 		addSequential(new DriveRobot(1.5, 0, 0.55));  // 90 degree turn
 
 

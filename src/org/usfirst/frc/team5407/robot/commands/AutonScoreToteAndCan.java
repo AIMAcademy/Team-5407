@@ -20,7 +20,7 @@ public class AutonScoreToteAndCan extends CommandGroup {
 		// DriveRobot has three variables: (timeout, speed, turn)
 //		addSequential(new SetWinchSetpoint(0.52));
 		addSequential(new WinchAuton(2, 1));
-		addSequential(new WinchAuton(.1, 0));
+//		addSequential(new WinchAuton(.1, 0));
 		addSequential(new DriveRobot(2, -0.5, 0));
 		addSequential(new GrippersOpenClose(false));
 		addSequential(new DriveRobot(5.25, -0.75, -0.5));
