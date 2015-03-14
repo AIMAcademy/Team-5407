@@ -28,6 +28,7 @@ public class WinchAuton extends Command {
 	}
 
 	protected void end() {
+		Robot.winch.driveWinch(0);
 	}
 
 	protected void interrupted() {
