@@ -46,7 +46,7 @@ public class ClawBack extends Subsystem {
 			}
 		}
 		else {
-			motor.set(0);
+			motor.set(speed);
 		}
 	}
 
