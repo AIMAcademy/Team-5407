@@ -33,16 +33,7 @@ public class ClawBack extends Subsystem {
 		setDefaultCommand(new ClawBackDrive());
 	}
 
-//	public void open() {
-//		motor.set(.5);
-//	}
-//
-//	public void close() {
-//		motor.set(-0.5);
-//	}
-
 	public void driveClaw(double speed) {
-//	  motor.set(speed);
 		if(OI.getStick2Y() < -0.1){
 			motor.set(speed);
 		}
@@ -57,14 +48,13 @@ public class ClawBack extends Subsystem {
 		else {
 			motor.set(0);
 		}
-}
-
-	
-	public void doNothing() {
-		motor.set(0);
 	}
 
 	public void clawBackOpenClose(boolean state) {
 		solenoidClaw.set(state);
+	}
+
+	public void doNothing() {
+		motor.set(0);
 	}
 }
