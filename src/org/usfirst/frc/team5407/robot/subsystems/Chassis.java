@@ -33,6 +33,7 @@ public class Chassis extends Subsystem {
 	boolean reverseState = false;
 	double speed = 0;
 	double turn = 0;
+	
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -40,7 +41,7 @@ public class Chassis extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new DriveWithJoystick());
-		setDefaultCommand(new UltraSonic());
+		setDefaultCommand(new UltraSonic()); // TODO THIS BREAKS THE CHASSIS - FIX BEFORE RUNNING
 		solenoid_gear_shift.set(false);
 	}
 
@@ -51,6 +52,10 @@ public class Chassis extends Subsystem {
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		drive.setSafetyEnabled(false);
+		
+		// Initialize UltraSonic Sensor
+		int ultraSonicValue = ultraSonic.getAverageValue();
+	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
 	}
 	
 	public void driveRobot(double speed, double turn) {
@@ -122,10 +127,20 @@ public class Chassis extends Subsystem {
 		solenoid_gear_shift.set(lockLowGear ? true : state);
 	}
 	
-	public int ultraSonic() {
+//	public int ultraSonic() {
+//		int ultraSonicValue = ultraSonic.getAverageValue();
+//	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
+//		return ultraSonicValue;
+//	}
+	
+	public void ultraSonicFindCan() {
 		int ultraSonicValue = ultraSonic.getAverageValue();
-	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
-		return ultraSonicValue;
+		if(ultraSonicValue>500 && ultraSonicValue<700) {
+			drive.arcadeDrive(0.0, 0);
+		}
+		else {
+			drive.arcadeDrive(0.0, -0.5);
+		}
 	}
 
 }
