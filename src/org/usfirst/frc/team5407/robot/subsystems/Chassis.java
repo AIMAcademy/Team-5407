@@ -33,6 +33,7 @@ public class Chassis extends Subsystem {
 	boolean reverseState = false;
 	double speed = 0;
 	double turn = 0;
+	public boolean isFinished;
 	
 
 	// Put methods for controlling this subsystem
@@ -51,10 +52,6 @@ public class Chassis extends Subsystem {
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		drive.setSafetyEnabled(false);
-		
-		// Initialize UltraSonic Sensor
-		int ultraSonicValue = ultraSonic.getAverageValue();
-	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
 	}
 	
 	public void driveRobot(double speed, double turn) {
@@ -112,6 +109,10 @@ public class Chassis extends Subsystem {
 	}
 
 	public void driveWithJoystick(Joystick stick0) {
+		// Initialize UltraSonic Sensor
+		int ultraSonicValue = ultraSonic.getAverageValue();
+	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
+	    
 		if(reverseState==true) {
 			drive.arcadeDrive(stick0.getY(), -stick0.getX());
 		}
@@ -134,8 +135,10 @@ public class Chassis extends Subsystem {
 	
 	public void ultraSonicFindCan() {
 		int ultraSonicValue = ultraSonic.getAverageValue();
+	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
 		if(ultraSonicValue>500 && ultraSonicValue<700) {
 			drive.arcadeDrive(0.0, 0);
+			isFinished = true;
 		}
 		else {
 			drive.arcadeDrive(0.0, -0.5);
