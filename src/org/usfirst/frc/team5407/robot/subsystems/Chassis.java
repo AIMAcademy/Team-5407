@@ -5,22 +5,28 @@
  */
 package org.usfirst.frc.team5407.robot.subsystems;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 
 import org.usfirst.frc.team5407.robot.OI;
 import org.usfirst.frc.team5407.robot.Robot;
+import org.usfirst.frc.team5407.robot.RobotMap;
 import org.usfirst.frc.team5407.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team5407.robot.commands.UltraSonic;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  * @author robotics
  */
 public class Chassis extends Subsystem {
+    private AnalogInput ultraSonic = RobotMap.ultraSonic;
 	RobotDrive drive;
 	Talon talonLeft, talonRight;
 	Solenoid solenoid_gear_shift = new Solenoid(0);
@@ -34,6 +40,7 @@ public class Chassis extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new DriveWithJoystick());
+		setDefaultCommand(new UltraSonic());
 		solenoid_gear_shift.set(false);
 	}
 
@@ -113,6 +120,12 @@ public class Chassis extends Subsystem {
 
 	public void setGear(boolean state) {
 		solenoid_gear_shift.set(lockLowGear ? true : state);
+	}
+	
+	public int ultraSonic() {
+		int ultraSonicValue = ultraSonic.getAverageValue();
+	    SmartDashboard.putNumber("ultraSonic Value", ultraSonicValue);
+		return ultraSonicValue;
 	}
 
 }
