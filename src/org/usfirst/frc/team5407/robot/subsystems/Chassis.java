@@ -41,7 +41,6 @@ public class Chassis extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new DriveWithJoystick());
-		setDefaultCommand(new UltraSonic()); // TODO THIS BREAKS THE CHASSIS - FIX BEFORE RUNNING
 		solenoid_gear_shift.set(false);
 	}
 
