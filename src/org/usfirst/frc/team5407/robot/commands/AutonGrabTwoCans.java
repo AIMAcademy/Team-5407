@@ -13,23 +13,23 @@ public class AutonGrabTwoCans extends CommandGroup {
     	
     	
     	// Grab first can
-//    	addSequential(new ClawBackOpenClose(true));		// open claw
-//    	addSequential(new DriveRobot(0.25, 1, 0));		// drive backwards to totes
-//    	addSequential(new ClawBackAuton(1.5, -1));		// extend claw back
-//    	addSequential(new ClawBackOpenClose(false));	// close claw to grab can
-//    	addSequential(new ClawBackAuton(1.25, 1));		// retract claw back
-//    	addSequential(new ClawBackOpenClose(true));		// open claw to drop can
-//    	addSequential(new DriveRobot(0.25, -1, 0));		// drive forwards away from totes
+    	addSequential(new ClawBackOpenClose(true));		// open claw
+    	addSequential(new DriveRobot(0.25, 1, 0));		// drive backwards to totes
+    	addSequential(new ClawBackAuton(1.9, -1));		// extend claw back
+    	addSequential(new ClawBackOpenClose(false));	// close claw to grab can
+    	addSequential(new ClawBackAuton(1.75, 1));		// retract claw back
+    	addSequential(new ClawBackOpenClose(true));		// open claw to drop can
+    	addSequential(new DriveRobot(0.25, -1, 0));		// drive forwards away from totes
 
     	// Turn, drive, and grab second can
     	addSequential(new DriveRobot(1.5, 0, -0.55));	// 90 degree turn left
-//    	addSequential(new DriveRobot(2.00, -1, 0));		// drive forward to other can (approximate timing)
+    	addSequential(new DriveRobot(2.00, -1, 0));		// drive forward to other can (approximate timing)
 //    	addSequential(new DriveRobot(1.5, 0, 0.55));			// 90 degree turn left (not using)
     	addSequential(new UltraSonic());				// turn left until find can
     	addSequential(new DriveRobot(0.25, 1, 0));		// drive backwards to totes
-//    	addSequential(new ClawBackAuton(1.5, -1));		// extend claw back
-//    	addSequential(new ClawBackOpenClose(false));	// close claw to grab can
-//    	addSequential(new ClawBackAuton(1.25, 1));		// retract claw back
+    	addSequential(new ClawBackAuton(1.9, -1));		// extend claw back
+    	addSequential(new ClawBackOpenClose(false));	// close claw to grab can
+    	addSequential(new ClawBackAuton(1.75, 1));		// retract claw back
     	
     	// Move into scoring position
     	addSequential(new DriveRobot(3, -.75, 0));		// drive forwards to scoring position
