@@ -9,14 +9,15 @@ public class AutonGrabStepCanSlowBump extends CommandGroup {
     
     public  AutonGrabStepCanSlowBump() {
     	addSequential(new ClawBackOpenClose(true));		// open claw
-    	addSequential(new DriveRobot(0.25, 1, 0));		// drive forwards into creates 
-    	addSequential(new ClawBackAuton(1.9, -1));		//extend claw back 
-    	addSequential(new ClawBackOpenClose(false));	//close claw
+    	addSequential(new DriveRobot(0.25, 1, 0));		// drive forwards into creates
+    	addSequential(new DriveRobot(0.1, 0, 0));		// pause for .1 seconds
+    	addSequential(new ClawBackAuton(1.6, -1));		// extend claw back 
+    	addSequential(new ClawBackOpenClose(false));	// close claw
     	addSequential(new DriveRobot(0.25, 0, 0));		// pause for .25 seconds
-    	addSequential(new ClawBackAuton(1, 1));			//retract claw 
-    	addSequential(new DriveRobot(9, -.25, 0));		//drive forwards for nine seconds 
-		addSequential(new DriveRobot(1.5, 0, 0.55));  	// 90 degree turn right
-		addSequential(new DriveRobot(0.50, 0.5, 0)); 	//drive robot forwards 
+    	addSequential(new ClawBackAuton(1.25, 1));		// retract claw 
+    	addSequential(new DriveRobot(7.5, -.5, 0));		// drive backwards for 6 seconds
+		addSequential(new DriveRobot(1.5, 0, 0.6));  	// 90 degree turn right
+		addSequential(new DriveRobot(0.50, 0.5, 0)); 	// drive robot forwards 
 
         // Add Commands here:
         // e.g. addSequential(new Command1());
