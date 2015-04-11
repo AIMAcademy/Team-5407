@@ -29,9 +29,11 @@ import com.ni.vision.NIVision.ShapeMode;
 
 
 
+
 import org.usfirst.frc.team5407.robot.commands.AutonDoNothing;
 import org.usfirst.frc.team5407.robot.commands.AutonDriveFromLandfillToAuto;
 import org.usfirst.frc.team5407.robot.commands.AutonGrabStepCan;
+import org.usfirst.frc.team5407.robot.commands.AutonGrabStepCanSlowBump;
 import org.usfirst.frc.team5407.robot.commands.AutonGrabTwoCans;
 import org.usfirst.frc.team5407.robot.commands.AutonScoreCan;
 import org.usfirst.frc.team5407.robot.commands.AutonScoreToteAndCan;
@@ -93,7 +95,8 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Score tote and can", new AutonScoreToteAndCan());  
 		autoChooser.addObject("Score can", new AutonScoreCan());  
 		autoChooser.addObject("Grab step can", new AutonGrabStepCan());  
-		autoChooser.addObject("Grab two cans", new AutonGrabTwoCans());  
+		autoChooser.addObject("Grab two cans", new AutonGrabTwoCans());
+		autoChooser.addObject("GrabStepCanSlowBump", new AutonGrabStepCanSlowBump());
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		
 		// Camera settings to show on Smart Dashboard
